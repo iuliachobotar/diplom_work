@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watch</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <section class="flex">
+            <a href="home.html" class="logo">Educa.</a>
+
+            <form action="" method="post" class="search-form">
+                <input type="text" name="search_box" placeholder="search courses..." required maxlength="100">
+                <button type="submit" class="fas fa-search" name="search_box">
+                </button>
+            </form>
+
+            <div class="icons">
+                <div id="menu-btn" class="fas fa-bars"></div>
+                <div id="search-btn" class="fas fa-search"></div>
+                <div id="user-btn" class="fas fa-user"></div>
+                <div id="toggle-btn" class="fas fa-sun"></div>
+            </div>
+
+            <div class="profile">
+                <img src="images/pic-04.png" alt="">
+                <h3>chobotar yulia</h3>
+                <span>student</span>
+                <a href="profile.html" class="btn">view profile</a>
+                <div class="flex-btn">
+                    <a href="login.html" class="option-btn">login</a>
+                    <a href="register.html" class="option-btn">register</a>
+                </div>
+            </div>
+        </section>
+
+    </header>
+
+    <div class="side-bar">
+
+        <div class="close-side-bar">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <div class="profile">
+            <img src="images/pic-04.png" alt="">
+            <h3>chobotar yulia</h3>
+            <span>student</span>
+            <a href="profile.html" class="btn">view profile</a>
+        </div>
+
+        <nav class="navbar">
+            <a href="home.html"><i class="fas fa-home"></i><span>home</span></a>
+            <a href="about.html"><i class="fas fa-question"></i><span>about us</span></a>
+            <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
+            <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
+            <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>
+        </nav>
+
+    </div>
+
+    <section class="watch-video">
+
+        <div class="video-details">
+            <video src="images/Introduction to PS interface and settings.mp4" class="video" poster="images/Урок_1.png"
+                controls autoplay></video>
+            <h3 class="title">Photoshop tutorial (part 01)</h3>
+            <div class="info">
+                <p><i class="fas fa-calendar"></i><span>21-22-2024</span></p>
+                <p><i class="fas fa-heart"></i><span>45 likes</span></p>
+            </div>
+            <div class="tutor">
+                <img src="images/pic-02.png" alt="">
+                <div>
+                    <h3>xiao chen</h3>
+                    <span>artist</span>
+                </div>
+            </div>
+            <form action="" method="post" class="flex">
+                <a href="playlist.html" class="inline-btn">view playlist</a>
+                <button type="submit"><i class="fas fa-heart"></i><span>like</span></button>
+            </form>
+            <div class="description">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facilis corrupti veniam modi ipsam et
+                    labore quo aspernatur, reprehenderit consectetur. Voluptates porro quas, dolores quaerat
+                    consequuntur incidunt ab dolor eos?
+                </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae tenetur, architecto, dicta
+                    aperiam beatae minima dolorem a deserunt consequatur magnam. Molestias inventore exercitationem
+                    ullam cum id, sed a eos.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="comments">
+
+        <h1 class="heading">add a comment</h1>
+
+        <form action="" method="post" class="add-comment">
+            <textarea name="comment_box" required placeholder="write your comment..." maxlength="1000" cols="30"
+                rows="10" id=""></textarea>
+            <input type="submit" value="add comment" name="add_comment" class="inline-btn">
+        </form>
+
+        <h1 class="heading">6 comments</h1>
+
+        <div class="show-comments">
+
+            <div class="box">
+                <div class="user">
+                    <img src="images/pic-07.png" alt="">
+                    <div>
+                        <h3>mai mai</h3>
+                        <span>22-25-2024</span>
+                    </div>
+                </div>
+                <p class="text">this is a comment from mai mai</p>
+                <form action="" method="post" class="flex-btn">
+                    <button type="submit" name="edit_comment" class="inline-option-btn">edit comment</button>
+                    <button type="submit" name="delete_comment" class="inline-delete-btn">delete comment</button>
+                </form>
+            </div>
+
+            <div class="box">
+
+                <div class="user">
+                    <img src="images/pic-01.png" alt="">
+                    <div>
+                        <h3>mark polo</h3>
+                        <span>22-25-2024</span>
+                    </div>
+                </div>
+                <p class="text">wow amazing video!
+                    thaks for explanation!
+                </p>
+
+            </div>
+
+            <div class="box">
+
+                <div class="user">
+                    <img src="images/pic-03.png" alt="">
+                    <div>
+                        <h3>marry svift</h3>
+                        <span>22-25-2024</span>
+                    </div>
+                </div>
+                <p class="text">so cool!!!!
+                </p>
+
+            </div>
+
+            <div class="box">
+
+                <div class="user">
+                    <img src="images/pic-08.png" alt="">
+                    <div>
+                        <h3>jack parrow</h3>
+                        <span>22-25-2024</span>
+                    </div>
+                </div>
+                <p class="text">where are you took this brush?
+                </p>
+
+            </div>
+
+            <div class="box">
+
+                <div class="user">
+                    <img src="images/pic-10.png" alt="">
+                    <div>
+                        <h3>robin good</h3>
+                        <span>22-25-2024</span>
+                    </div>
+                </div>
+                <p class="text">it's easier than i thought!
+                </p>
+
+            </div>
+
+            <div class="box">
+
+                <div class="user">
+                    <img src="images/pic-05.png" alt="">
+                    <div>
+                        <h3>pao vei</h3>
+                        <span>22-25-2024</span>
+                    </div>
+                </div>
+                <p class="text">thaks for explanation!
+                    that so cool!
+                </p>
+
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="footer">
+
+        &copy; copyright @ 2024 by <span>mrs. web designer</span> | all rights reserved!
+
+    </footer>
+
+
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
