@@ -976,7 +976,7 @@ background: none;
 }
 
 .teachers .box-container .box{
-    border-radius: 5rem;
+    border-radius: .5rem;
     padding: 2rem;
     background-color: var(--white);
 }
@@ -1009,7 +1009,7 @@ background: none;
 .teachers .box-container .box p{
     padding-top: 1rem;
     font-size: 1.7rem;
-    color: var(--light-bg);
+    color: var(--light-color);
 }
 
 .teachers .box-container .box p span{
