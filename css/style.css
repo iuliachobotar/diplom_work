@@ -1170,6 +1170,147 @@ color: var(--black);
     color: var(--main-color);
 }
 
+.profile .details{
+    background-color: var(--white);
+    border-radius: .5rem;
+    padding: 2rem;
+}
+
+.profile .details .user{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.profile .details .user img{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 5rem;
+}
+
+.profile .details .user h3{
+    font-size: 2rem;
+    margin: .5rem 0;
+    color: var(--black);
+}
+
+.profile .details .user p{
+    font-size: 1.7rem;
+    color: var(--light-color);
+}
+
+.profile .details .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 1.5rem;
+}
+
+.profile .details .box-container .box{
+    background-color: var(--light-bg);
+    border-radius: .5rem;
+    padding: 2rem;
+    flex: 1 1 30rem;
+}
+
+.profile .details .box-container .box .flex{
+    display: flex;
+    align-items: center;
+    gap: 1.7rem;
+    margin-bottom: 1rem;
+}
+
+.profile .details .box-container .box .flex i{
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: .5rem;
+    background-color: var(--black);  /**/
+    line-height: 4.4rem;
+    font-size: 2rem;
+    color: var(--white);   /**/
+    text-align: center;
+}
+
+.profile .details .box-container .box .flex h3{
+    font-size: 2rem;
+    color: var(--main-color);
+    margin-bottom: .2rem;
+}
+
+.profile .details .box-container .box .flex span{
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+.form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 20rem);
+}
+
+.form-container form{
+    background-color: var(--white);
+    border-radius: .5rem;
+    padding: 2rem;
+    width: 50rem;
+}
+
+.form-container form h3{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--black);
+}
+
+.form-container form p{
+    padding-top: 1rem;
+    font-size: 1.7rem;
+    color: var(--light-color);
+}
+
+.form-container form p span{
+    color: var(--red);
+}
+
+.form-container form .box{
+    width: 100%;
+    border-radius: .5rem;
+    margin: 1rem 0;
+    font-size: 1.8rem;
+    color: var(--black);
+    padding: 1.4rem;
+    background-color: var(--light-bg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
