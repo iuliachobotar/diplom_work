@@ -40,18 +40,22 @@
     background-color: var(--main-color);
 }
 
-html{
+html {
     font-size: 62.5%;
     overflow-x: hidden;
 }
 
-body{
+body {
     padding-bottom: 9rem;
     background-color: var(--light-bg);
     padding-left: 30rem;
 }
 
-section{
+body.active {
+    padding-left: 0;
+}
+
+section {
     padding: 2rem;
     margin: 0 auto;
     max-width: 1200px;
@@ -62,7 +66,7 @@ section{
 .delete-btn,
 .inline-btn,
 .inline-option-btn,
-.inline-delete-btn{
+.inline-delete-btn {
     margin-top: 1rem;
     border-radius: .5rem;
     padding: 1rem 3rem;
@@ -78,53 +82,55 @@ section{
 .delete-btn:hover,
 .inline-btn:hover,
 .inline-option-btn:hover,
-.inline-delete-btn:hover{
-background-color: var(--black);
-color: var(--white);
+.inline-delete-btn:hover {
+    background-color: var(--black);
+    color: var(--white);
 }
 
 .inline-btn,
 .inline-option-btn,
-.inline-delete-btn{
+.inline-delete-btn {
     display: inline-block;
 }
 
 .btn,
 .option-btn,
-.delete-btn{
+.delete-btn {
     display: block;
     width: 100%;
 }
 
 .btn,
-.inline-btn{
+.inline-btn {
     background-color: var(--main-color);
 }
 
 .option-btn,
-.inline-option-btn{
+.inline-option-btn {
     background-color: var(--orangen);
 }
 
 .delete-btn,
-.inline-delete-btn{
+.inline-delete-btn {
     background-color: var(--red);
 }
 
-.flex-btn{
+.flex-btn {
     display: flex;
     gap: 1rem;
 }
 
-.header{
+.header {
     position: sticky;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     background-color: var(--white);
     border-bottom: var(--border);
     z-index: 1000;
 }
 
-.header .flex{
+.header .flex {
     display: flex;
     align-items: center;
     padding: 1rem 2rem;
@@ -132,12 +138,12 @@ color: var(--white);
     position: relative;
 }
 
-.header .flex .logo{
+.header .flex .logo {
     font-size: 2.5rem;
     color: var(--black);
 }
 
-.header .flex .search-form{
+.header .flex .search-form {
     width: 50rem;
     background-color: var(--light-bg);
     border-radius: .5rem;
@@ -146,24 +152,24 @@ color: var(--white);
     gap: 2rem;
 }
 
-.header .flex .search-form input{
+.header .flex .search-form input {
     background: none;
     width: 100%;
     font-size: 1.8rem;
     color: var(--black);
 }
 
-.header .flex .search-form button{
+.header .flex .search-form button {
     background: none;
     font-size: 2rem;
     cursor: pointer;
 }
 
-.header .flex .search-form button:hover{
+.header .flex .search-form button:hover {
     color: var(--main-color);
 }
 
-.header .flex .icons div{
+.header .flex .icons div {
     margin-left: .5rem;
     height: 4.5rem;
     width: 4.5rem;
@@ -176,18 +182,19 @@ color: var(--white);
     text-align: center;
 }
 
-.header .flex .icons div:hover{
+.header .flex .icons div:hover {
     background-color: var(--black);
     color: var(--white);
 }
 
-#search-btn{
+#search-btn {
     display: none;
 }
 
-.header .flex .profile{
+.header .flex .profile {
     position: absolute;
-    top: 120%; right: 2rem;
+    top: 120%;
+    right: 2rem;
     background-color: var(--white);
     padding: 1.5rem;
     text-align: center;
@@ -199,11 +206,11 @@ color: var(--white);
     transition: .2s linear;
 }
 
-.header .flex .profile.active{
+.header .flex .profile.active {
     transform: scale(1);
 }
 
-.header .flex .profile h3{
+.header .flex .profile h3 {
     margin-bottom: .5rem;
     font-size: 2rem;
     color: var(--black);
@@ -211,7 +218,7 @@ color: var(--white);
     overflow-x: hidden;
 }
 
-.header .flex .profile img{
+.header .flex .profile img {
     margin-bottom: .5rem;
     height: 10rem;
     width: 10rem;
@@ -219,31 +226,32 @@ color: var(--white);
     object-fit: cover;
 }
 
-.header .flex .profile span{
+.header .flex .profile span {
     font-size: 1.5rem;
     color: var(--light-color);
 }
 
-.side-bar{
+.side-bar {
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     height: 100vh;
-    background-color: var(--white);
     width: 30rem;
+    background-color: var(--white);
     border-right: var(--border);
     z-index: 1200;
 }
 
-.side-bar .profile{
-    background-color: var(--white);
-    padding: 3rem 2rem;
-    text-align: center;
-    border-radius: .5rem;
-    width: 30rem;
-    overflow-x: hidden;
+.side-bar.active {
+    left: -30rem;
 }
 
-.side-bar .profile h3{
+.side-bar .profile {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.side-bar .profile h3 {
     margin-bottom: .5rem;
     font-size: 2rem;
     color: var(--black);
@@ -251,72 +259,232 @@ color: var(--white);
     overflow-x: hidden;
 }
 
-.side-bar .profile img{
+.side-bar .profile img {
     margin-bottom: .5rem;
     height: 10rem;
     width: 10rem;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.side-bar .profile span {
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+.side-bar .navbar a {
+    display: block;
+    padding: 2rem;
+    font-size: 1.8rem;
+    margin: 1rem 0;
+}
+
+.side-bar .navbar a i {
+    margin-right: 1.5rem;
+    color: var(--main-color);
+    transition: .2s linear;
+}
+
+.side-bar .navbar a span {
+    color: var(--light-color);
+}
+
+.side-bar .navbar a:hover i {
+    margin-right: 2.5rem;
+}
+
+.side-bar .navbar a:hover {
+    background-color: var(--light-bg);
+}
+
+.side-bar #close-bar {
+    text-align: right;
+    padding: 2rem;
+    padding-bottom: 0;
+    display: none;
+}
+
+.side-bar #close-bar i {
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.4rem;
+    color: #fff;
+    background-color: var(--red);
+    cursor: pointer;
+    border-radius: .5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    z-index: 1000;
+    border-top: var(--border);
+    font-size: 2rem;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    padding-left: 30rem;
+}
+
+.footer.active {
+    padding-left: 2rem;
+}
+
+.footer span {
+    color: var(--main-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:1200px) {
+
+    body {
+        padding-left: 0;
     }
-    
-    .side-bar .profile span{
-        font-size: 1.5rem;
-        color: var(--light-color);
-    }
-    
-    .side-bar .navbar a{
-        display: block;
-        padding: 2rem;
-        font-size: 1.8rem;
-        margin: 1rem 0;
-    }
-    
-    .side-bar .navbar a i{
-        margin-right: 1.5rem;
-        color: var(--main-color);
+
+    .side-bar {
+        left: -30rem;
         transition: .2s linear;
     }
-    
-    .side-bar .navbar a span{
-        color: var(--light-color);
-    }
-    
-    .side-bar .navbar a:hover i{
-        margin-right: 2.5rem;
+
+    .footer {
+        padding-left: 2rem;
     }
 
-    .side-bar .navbar a:hover{
-        background-color: var(--light-bg);
+    .side-bar.active {
+        left: 0;
+        box-shadow: 0 0 0 100vw rgba(0, 0, 0, .7);
     }
 
+    .side-bar #close-bar{
+        display: block;
+    }
 
+}
 
+@media (max-width:991px) {
 
+    html {
+        font-size: 55%;
+    }
 
+}
 
+@media (max-width:768px) {
 
+    #search-btn {
+        display: inline-block;
+    }
 
+    .header .flex .search-form {
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        background-color: var(--white);
+        border-top: var(--border);
+        border-bottom: var(--border);
+        width: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: .2s linear;
+    }
 
+    .header .flex .search-form.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
 
+}
 
+@media (max-width:450px) {
 
+    html {
+        font-size: 50%;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
