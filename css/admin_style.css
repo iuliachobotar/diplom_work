@@ -46,7 +46,7 @@ html {
 }
 
 body {
-    padding-bottom: 9rem;
+    /*padding-bottom: 9rem;*/
     background-color: var(--light-bg);
     padding-left: 30rem;
 }
