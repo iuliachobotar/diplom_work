@@ -31,7 +31,7 @@ if(isset($_COOKIE['tutor_id'])){
         $rename = create_unique_id().'.'.$ext;
         $image_tmp_nname = $_FILES['image']['tmp_name'];
         $image_size = $_FILES['image']['size'];
-        $image_folder = '../uploaded_files'.$rename;
+        $image_folder = '../uploaded_files/'.$rename;
 
         $select_tutor_email = $conn->prepare("SELECT * FROM `tutor` WHERE email = ?");
         $select_tutor_email->execute([$email]);
@@ -42,21 +42,29 @@ if(isset($_COOKIE['tutor_id'])){
             if($pass != $c_pass){
                 $message[] = 'password not matched!';
             }else{
-                $insert_tutor = $conn->prepare("INSERT INTO `tutor` (id, name, profession, email, password, image)VALUES(?,?,?,?,?,?)");
-                $insert_tutor->execute([$id, $name, $profession, $email, $c_pass, $rename]);
+                
+                if($image_size > 2000000){
+                    $message[] = 'image size to large!';
+                }else{
+                    $insert_tutor = $conn->prepare("INSERT INTO `tutor` (id, name, profession, email, password, image)VALUES(?,?,?,?,?,?)");
+                    $insert_tutor->execute([$id, $name, $profession, $email, $c_pass, $rename]);
+                    move_uploaded_file($image_tmp_name, $image_folder);
 
-                $verify_tutor = $conn->prepare("SELECT * FROM `tutor` WHERE email = ? AND password = ? LIMIT 1");
-                $verify_tutor->execute([$email, $c_pass]);
-                $row = $verify_tutor->fetch(PDO::FETCH_ASSOC);
 
-                if($insert_tutor){
-                    if($verify_tutor->rowCount() > 0){
-                        setcookie('tutor_id', $row['id'], time() + 60*60*24*30, '/');
-                        header('location:dashboard.php');
-                    }else{
-                        $message[] = 'something went wrong!';
+                    $verify_tutor = $conn->prepare("SELECT * FROM `tutor` WHERE email = ? AND password = ? LIMIT 1");
+                    $verify_tutor->execute([$email, $c_pass]);
+                    $row = $verify_tutor->fetch(PDO::FETCH_ASSOC);
+
+                    if($insert_tutor){
+                        if($verify_tutor->rowCount() > 0){
+                            setcookie('tutor_id', $row['id'], time() + 60*60*24*30, '/');
+                            header('location:dashboard.php');
+                        }else{
+                            $message[] = 'something went wrong!';
+                        }
                     }
                 }
+
             }
         }
 

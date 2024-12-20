@@ -9,12 +9,12 @@ $tutor_id = $_COOKIE['tutor_id'];
     header('location:login.php');
 }
 
-$count_contents = $conn->prepare("SELECT * FROM `content` WHERE tutor_id = ?");
-$count_contents->execute([$tutor_id]);
+$count_content = $conn->prepare("SELECT * FROM `content` WHERE tutor_id = ?");
+$count_content->execute([$tutor_id]);
 $total_contents = $count_content->rowCount();
 
-$count_playlists = $conn->prepare("SELECT * FROM `playlist` WHERE tutor_id = ?");
-$count_playlists->execute([$tutor_id]);
+$count_playlist = $conn->prepare("SELECT * FROM `playlist` WHERE tutor_id = ?");
+$count_playlist->execute([$tutor_id]);
 $total_playlists = $count_playlist->rowCount();
 
 $count_likes = $conn->prepare("SELECT * FROM `likes` WHERE tutor_id = ?");
