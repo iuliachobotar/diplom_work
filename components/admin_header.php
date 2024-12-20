@@ -1,3 +1,17 @@
+<?php
+if(isset($message)){
+    foreach($message as $message){
+        echo '
+        <div class="message">
+            <span>'.$message.'</span>
+            <i class="fas fa-tines" onclick="this.parentElement.remove();"></i>
+        </div>
+        ';
+    }
+}
+?>
+
+
 <header class="header">
 
 <section class="flex">
@@ -19,7 +33,7 @@
     <div class="profile">
         <?php
         $select_profile = $conn->prepare("SELECT * FROM `tutor` WHERE id = ?");
-        $select_profile->execute([$user_id]);
+        $select_profile->execute([$tutor_id]);
         if($select_profile->rowCount() > 0){
             $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
         ?>
@@ -33,7 +47,7 @@
     </div>
             <a href="../components//admin_logout.php" onclick="return confirm ('logout from this website?');" class="delete-btn">logout</a>
         <?php
-                }else{     
+                }else{
         ?>
         <h3>please login first</h3>
     <div class="flex-btn">

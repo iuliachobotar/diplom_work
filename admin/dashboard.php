@@ -2,11 +2,28 @@
 
 include '../components/connect.php';
 
-if(isset($_COOKIE['user_id'])){
-$user_id = $_COOKIE['user_id'];
+if(isset($_COOKIE['tutor_id'])){
+$tutor_id = $_COOKIE['tutor_id'];
 }else{
-    $user_id = '';
+    $tutor_id = '';
+    header('location:login.php');
 }
+
+$count_contents = $conn->prepare("SELECT * FROM `content` WHERE tutor_id = ?");
+$count_contents->execute([$tutor_id]);
+$total_contents = $count_content->rowCount();
+
+$count_playlists = $conn->prepare("SELECT * FROM `playlist` WHERE tutor_id = ?");
+$count_playlists->execute([$tutor_id]);
+$total_playlists = $count_playlist->rowCount();
+
+$count_likes = $conn->prepare("SELECT * FROM `likes` WHERE tutor_id = ?");
+$count_likes->execute([$tutor_id]);
+$total_likes = $count_likes->rowCount();
+
+$count_comments = $conn->prepare("SELECT * FROM `comments` WHERE tutor_id = ?");
+$count_comments->execute([$tutor_id]);
+$total_comments = $count_comments->rowCount();
 
 ?>
 
@@ -25,7 +42,53 @@ $user_id = $_COOKIE['user_id'];
 
 <?php include '../components/admin_header.php'; ?>
 
+<section class="dashboard">
 
+    <h1 class="heading">dashboard</h1>
+
+    <div class="box-container">
+
+    <div class="box">
+        <h3>welcome!</h3>
+        <p><?= $fetch_profile['name']; ?></p>
+        <a href="profile.php" class="btn">view profile</a>
+    </div>
+
+    <div class="box">
+        <h3><?= $total_contents; ?></h3>
+        <p>contents uploaded</p>
+        <a href="add_content.php" class="btn">add new content</a>
+    </div>
+
+    <div class="box">
+        <h3><?= $total_playlists; ?></h3>
+        <p>playlists uploaded</p>
+        <a href="add_playlist.php" class="btn">add new playlist</a>
+    </div>
+
+    <div class="box">
+        <h3><?= $total_likes; ?></h3>
+        <p>total likes</p>
+        <a href="contents.php" class="btn">view contents</a>
+    </div>
+
+    <div class="box">
+        <h3><?= $total_likes; ?></h3>
+        <p>total comments</p>
+        <a href="comments.php" class="btn">view comments</a>
+    </div>
+    <div class="box">
+        <h3>quick links</h3>
+        <p>login or register</p>
+        <div class="flex-btn">
+            <a href="login.php" class="option-btn">login</a>
+            <a href="register.php" class="option-btn">register</a>
+        </div>
+    </div>
+
+    </div>
+
+</section>
 
 
 

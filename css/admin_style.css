@@ -61,6 +61,52 @@ section {
     max-width: 1200px;
 }
 
+.heading{
+    font-size: 3rem;
+    color: var(--black);
+    text-transform: capitalize;
+    padding-bottom: 1.5rem;
+    margin-bottom: 3rem;
+    border-bottom: var(--border);
+}
+
+.message{
+    position: sticky;
+    top: 0; left: 0; right: 0;
+    z-index: 1200;
+    background-color: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: .5rem;
+}
+
+.message.form{
+    top: 2rem;
+    background-color: var(--white);
+
+}
+
+.message span{
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.message i{
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: var(--red);
+    transition: .2s linear;
+}
+
+.message i:hover{
+    transform: rotate(90deg);
+}
+
 .btn,
 .option-btn,
 .delete-btn,
@@ -316,22 +362,106 @@ section {
     text-align: center;
 }
 
+.dashboard .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: flex-start;
+}
 
+.dashboard .box-container .box{
+    border-radius: .5rem;
+    background-color: var(--white);
+    padding: 1.5rem;
+    text-align: center;
+}
 
+.dashboard .box-container .box h3{
+    font-size: 2.5rem;
+    color: var(--black);
+    margin-bottom: .5rem;
+}
 
+.dashboard .box-container .box p{
+    margin: 1rem 0;
+    border-radius: .5rem;
+    padding: 1rem;
+    background-color: var(--light-bg);
+    font-size: 2rem;
+    color: var(--light-color);
+}
 
+.form-container{
+    min-height: calc(100vh - 10rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.form-container form{
+    width: 80rem;
+    background-color: var(--white);
+    border-radius: .5rem;
+    padding: 2rem;
+}
 
+.form-container form h3{
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--black);
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+}
 
+.form-container form .flex{
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
 
+.form-container form .flex .col{
+    flex: 1 1 35rem;
+}
 
+.form-container form p{
+    padding-top: 1rem;
+    font-size: 1.7rem;
+    color: var(--light-color);
+}
 
+.form-container form p span{
+    color: var(--red);
+}
 
+.form-container form .box{
+    width: 100%;
+    border-radius: .5rem;
+    margin: 1rem 0;
+    padding: 1.4rem;
+    font-size: 1.8rem;
+    color: var(--black);
+    background-color: var(--light-bg);
+}
 
+.form-container form.lofin{
+    width: 50rem;
+}
 
+.form-container form .link{
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 2rem;
 
+}
 
+.form-container form .link a{
+    color: var(--main-color);
+}
 
+.form-container form .link a:hover{
+    text-decoration: underline;
+}
 
 
 
@@ -485,6 +615,10 @@ section {
 
     html {
         font-size: 50%;
+    }
+
+    .heading{
+        font-size: 2.5rem;
     }
 
 }
