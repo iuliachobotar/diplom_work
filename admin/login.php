@@ -1,8 +1,9 @@
 <?php
-
+session_start();
 include '../components/connect.php';
-if(isset($_COOKIE['tutor_id'])){
-    $tutor_id = $_COOKIE['tutor_id'];
+
+if(isset($_SESSION['tutor_id'])){
+    $tutor_id = $_SESSION['tutor_id'];
     }else{
         $tutor_id = '';
     }
