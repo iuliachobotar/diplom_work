@@ -1,16 +1,28 @@
 <?php
 
-if(isset($message)){
-    foreach($message as $message){
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (isset($_SESSION['tutor_id'])) {
+    $tutor_id = $_SESSION['tutor_id'];
+} else {
+    $tutor_id = null; 
+}
+
+if (isset($message) && is_array($message)) {
+    foreach ($message as $msg) {
         echo '
         <div class="message">
-            <span>'.$message.'</span>
+            <span>' . htmlspecialchars($msg) . '</span>
             <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
         </div>
         ';
     }
 }
+
 ?>
+
 
 
 <header class="header">

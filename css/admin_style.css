@@ -524,6 +524,43 @@ section {
     color: var(--light-color);
 }
 
+.playlist-form form{
+    max-width: 50rem;
+    margin: 0 auto;
+    background-color: var(--white);
+    border-radius: .5rem;
+    padding: 2rem;
+    padding-top: 1rem;
+}
+
+.playlist-form form p{
+    padding-top: 1rem;
+    font-size: 1.8rem;
+    color: var(--light-color);
+}
+.playlist-form form p span {
+    color: var(--red);
+}
+
+.playlist-form form .box{
+    width: 100%;
+    background-color: var(--light-bg);
+    border-radius: .5rem;
+    padding: 1.4rem;
+    color: var(--black);
+    margin: 1rem 0;
+    font-size: 1.8rem;
+}
+
+.playlist-form form textarea{
+    height: 20rem;
+    resize: none;
+}
+
+
+
+
+
 
 
 
