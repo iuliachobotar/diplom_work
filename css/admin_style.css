@@ -70,6 +70,16 @@ section {
     border-bottom: var(--border);
 }
 
+.empty{
+    width: 100%;
+    background-color: var(--white);
+    color: var(--red);
+    padding: 2rem;
+    text-align: center;
+    font-size: 2rem;
+    border-radius: .5rem;
+}
+
 .message{
     position: sticky;
     top: 0; left: 0; right: 0;
@@ -557,67 +567,114 @@ section {
     resize: none;
 }
 
+.playlists .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 35rem);
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: flex-start;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+.playlists .box-container .box{
     background-color: var(--white);
-    z-index: 1000;
-    border-top: var(--border);
+    border-radius: .5rem;
+    padding: 2rem;
+}
+
+.playlists .box-container .box .thumb{
+    position: relative;
+    height: 20rem;
+    margin: 2rem 0;
+}
+
+.playlists .box-container .thumb span{
+    position: absolute;
+    top: 1rem; left: 1rem;
+    background-color: rgba(0, 0, 0, .3);
+    color: #fff;
     font-size: 2rem;
-    padding: 2.5rem 2rem;
-    text-align: center;
-    padding-left: 30rem;
+    padding: .5rem 1.5rem;
+    border-radius: .5rem;
 }
 
-.footer.active {
-    padding-left: 2rem;
+.playlists .box-container .thumb img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: .5rem;
 }
 
-.footer span {
-    color: var(--main-color);
+.playlists .box-container .flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
 }
+
+.playlists .box-container .flex i{
+font-size: 1.7rem;
+color: var(--main-color);
+margin-right: 1rem;
+}
+
+.playlists .box-container .flex span{
+    font-size: 1.6rem;
+    color: var(--light-color);
+    margin-right: 1rem;
+    }
+
+.playlists .box-container .title{
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.playlists .box-container .description{
+    padding: .5rem 0;
+    mask-type: 1rem;
+    line-height: 2;
+    font-size: 1.7rem;
+    color: var(--light-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -721,6 +778,10 @@ section {
 
     body{
         padding-bottom: 12rem;
+    }
+
+    .playlists .box-container{
+        grid-template-columns: 1fr;
     }
 
 }

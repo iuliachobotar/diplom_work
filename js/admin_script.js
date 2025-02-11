@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.innerWidth < 1200) {
             sideBar.classList.remove('active');
             body.classList.remove('active');
-            footer.classList.remove('active');
         }
     };
 });
