@@ -562,6 +562,15 @@ section {
     font-size: 1.8rem;
 }
 
+.playlist-form form img{
+    height: 20rem;
+    border-radius: .5rem;
+    margin: 1rem 0;
+    width: 100%;
+    object-fit: contain;
+    margin-top: 1rem;
+}
+
 .playlist-form form textarea{
     height: 20rem;
     resize: none;

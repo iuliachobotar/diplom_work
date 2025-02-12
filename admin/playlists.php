@@ -88,7 +88,7 @@ if(isset($_POST['delete_playlist'])){
             <p class="description"><?= $fetch_playlist['description'];?></p>
             <form action="" method="POST" class="flex-btn">
                 <input type="hidden" name="delete_id" value="<?= $playlist_id; ?>">
-                <a href="update_playlist.php?get_id= <?= $playlist_id; ?>" class="option-btn">update</a>
+                <a href="update_playlist.php?get_id=<?= $playlist_id; ?>" class="option-btn">update</a>
                 <input type="submit" value="delete" name="delete_playlist" class="delete-btn">
             </form>
             <a href="view_playlist.php" class="btn">view playlist</a>
