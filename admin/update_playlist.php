@@ -19,6 +19,7 @@ if(isset($_GET['get_id'])){
 }
 
 if(isset($_POST['update'])){
+
     $status = filter_var($_POST['status'], FILTER_SANITIZE_STRING);
     $title = filter_var($_POST['title'], FILTER_SANITIZE_STRING);
     $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
@@ -29,22 +30,23 @@ if(isset($_POST['update'])){
     
     $old_thumb = filter_var($_POST['old_thumb'], FILTER_SANITIZE_STRING);
     $thumb = $_FILES['thumb']['name'];
+    
     if(!empty($thumb)){
         $thumb = filter_var($thumb, FILTER_SANITIZE_STRING);
         $ext = pathinfo($thumb, PATHINFO_EXTENSION);
-        $rename = create_unique_id() . '.' .$ext;
+        $rename_thumb = 'playlist_' . create_unique_id() . '.' . $ext;
         $thumb_tmp_name = $_FILES['thumb']['tmp_name'];
         $thumb_size = $_FILES['thumb']['size'];
-        $thumb_folder = '../uploaded_files/' .$rename;
+        $thumb_folder = '../uploaded_files/' .$rename_thumb;
         
         if($thumb_size > 2000000){
             $message[] = 'image size is too large!';
         }else{
             $update_thumb = $conn->prepare("UPDATE `playlist` SET thumb = ? WHERE id = ?");
-            $update_thumb->execute([$rename, $get_id]);
+            $update_thumb->execute([$rename_thumb, $get_id]);
             move_uploaded_file($thumb_tmp_name, $thumb_folder);
             
-            if($old_thumb != '' && $old_thumb != $rename){
+            if($old_thumb != '' && $old_thumb != $rename_thumb){
                 unlink('../uploaded_files/'.$old_thumb);
             }
         }
