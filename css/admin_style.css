@@ -645,10 +645,68 @@ margin-right: 1rem;
     color: var(--light-color);
 }
 
+.playlist-details .row{
+    background-color: var(--white);
+    border-radius: .5rem;
+    padding: 2rem;
+    display: flex;
+    align-items: flex-end;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
 
+.playlist-details .row .thumb{
+    flex: 1 1 40rem;
+}
 
+.playlist-details .row .details{
+    flex: 1 1 40rem
+}
 
+.playlist-details .row .thumb img{
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+    border-radius: .5rem;
+}
 
+.playlist-details .row .thumb .flex{
+    display: flex;
+    margin-top: 1rem;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    background-color: var(--light-bg);
+    border-radius: .5rem;
+}
+
+.playlist-details .row .thumb .flex p{
+    font-size: 1.6rem;
+}
+
+.playlist-details .row .thumb .flex p span{
+    color: var(--light-color);
+}
+
+.playlist-details .row .thumb .flex i{
+    color: var(--main-color);
+    margin-right: 1rem;
+}
+
+.playlist-details .row .details .title{
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.playlist-details .row .details .description{
+    line-height: 2;
+    font-size: 1.7rem;
+    color: var(--light-color);
+    padding-top: 1rem;
+    padding-bottom: .5rem;
+
+}
 
 
 
@@ -791,6 +849,19 @@ margin-right: 1rem;
 
     .playlists .box-container{
         grid-template-columns: 1fr;
+    }
+
+    .flex-btn{
+        gap: 0;
+        flex-flow: column;
+    }
+
+    .playlist-details .row{
+        gap: 2rem;
+    }
+
+    .playlist-details .row .thumb img{
+        height: 25rem;
     }
 
 }

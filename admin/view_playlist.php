@@ -9,6 +9,14 @@ $tutor_id = $_SESSION['tutor_id'];
     header('location:login.php');
 }
 
+if(isset($_GET['get_id'])){
+    $get_id = $_GET['get_id'];
+}else{
+    $get_id = '';
+    header('location:playlists.php');
+    exit();
+}
+
 
 
 ?>
@@ -28,9 +36,77 @@ $tutor_id = $_SESSION['tutor_id'];
 
 <?php include '../components/admin_header.php'; ?>
 
+<section class="playlist-details">
+
+    <h1 class="heading">playlist details</h1>
+
+<?php 
+    $select_playlist = $conn->prepare("SELECT * FROM `playlist` WHERE id = ? LIMIT 1");
+    $select_playlist->execute([$get_id]);
+    
+    if($select_playlist->rowCount() > 0){
+        while($fetch_playlist = $select_playlist->fetch(PDO::FETCH_ASSOC)){
+            $count_content = $conn->prepare("SELECT * FROM `content` WHERE playlist_id = ?");
+            $count_content->execute([$get_id]);
+            $total_contents = $count_content->rowCount();
+?>
+<div class="row">
+    <div class="thumb">
+        
+        <img src="../uploaded_files/<?= $fetch_playlist['thumb']; ?>" alt="">
+        <div class="flex">
+        <p><i class="fas fa-video"></i><span><?= $total_contents; ?></span></p>
+        <p><i class="fas fa-calendar"></i><span><?= $fetch_playlist['date']; ?></span></p>
+        </div>
+    </div>
+    <div class="details">
+            <h3 class="title"><?= $fetch_playlist['title']; ?></h3>
+            <p class="description"><?= $fetch_playlist['description']; ?></p>
+            <form action="" method="POST" class="flex-btn">
+                <input type="hidden" name="delete_id" value="<?= $fetch_playlist['id']; ?>">
+                <a href="update_playlist.php?get_id=<?= $fetch_playlist['id']; ?>" class="option-btn">update</a>
+                <input type="submit" value="delete" name="delete_playlist" class="delete-btn">
+            </form>
+    </div>
+</div>
+
+<?php
+        }
+    }else{
+        echo '<p class="empty">playlist was not found!</p>';
+    }
+?>
+
+</section>
+
+<section class="contents">
+
+    <h1 class="heading">playlist contents</h1>
+
+    <div class="box-container">
+
+    <?php 
+    $select_content = $conn->prepare("SELECT * FROM `content` WHERE tutor_id = ? AND playlist_id = ?");
+    $select_content->execute([$tutor_id, $get_id]);
+    if($select_content->rowCount() > 0){
+        while($fetch_content = $select_content->fetch(PDO::FETCH_ASSOC)){
+    ?> 
+
+    <div class="box">
+
+    </div>
+
+    <?php 
+            }
+        }else{
+            echo '<p class="empty">no contents added yet! <a href="add_content.php" style="margin-top: 1.5rem;" class="btn">add new content</a></p>';
+        }
+    ?>
 
 
+    </div>
 
+</section>
 
 
 
