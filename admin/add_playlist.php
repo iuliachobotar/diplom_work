@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
 <?php include '../components/admin_header.php'; ?>
 
 
-<section class="playlist-form">
+<section class="crud-form">
 
 <h1 class="heading">add playlist</h1>
 
@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
     <option value="deactive">deactive</option>
 </select>
     <p>playlist title <span>*</span></p>
-    <input type="text" class="box" name="title" maxlength="100" placeholder="enter playlisttitle">
+    <input type="text" class="box" name="title" maxlength="100" placeholder="enter playlist title">
     <p>playlist description <span>*</span></p>
     <textarea name="description" class="box" cols="30" required placeholder="enter playlist description" maxlength="1000" rows="10" ></textarea>
     <p>playlist thumbnail <span>*</span></p>

@@ -17,6 +17,27 @@ if(isset($_GET['get_id'])){
     exit();
 }
 
+if(isset($_POST['delete_playlist'])){
+    $verify_playlist = $conn->prepare("SELECT * FROM `playlist` WHERE id = ?");
+    $verify_playlist->execute([$get_id]);
+
+    if($verify_playlist->rowCount() > 0){
+        $fetch_thumb = $verify_playlist->fetch(PDO::FETCH_ASSOC);
+        $prev_thumb = $fetch_thumb['thumb'];
+        if($prev_thumb != ''){
+            unlink('../uploaded_files/' .$prev_thumb);
+        }
+        $delete_bookmark = $conn->prepare("DELETE FROM `bookmark` WHERE playlist_id = ?");
+        $delete_bookmark->execute([$get_id]);
+        $delete_playlist = $conn->prepare("DELETE FROM `playlist` WHERE id = ?");
+        $delete_playlist->execute( [$get_id]);
+
+        header('location:playlists.php');
+        exit();
+    }else{
+        $message[] = 'playlist was already deleted!';
+    }
+}
 
 
 ?>
@@ -93,7 +114,9 @@ if(isset($_GET['get_id'])){
     ?> 
 
     <div class="box">
-
+            <div class="flex">
+                
+            </div>
     </div>
 
     <?php 
