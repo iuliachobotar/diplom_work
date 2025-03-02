@@ -61,10 +61,9 @@ if(isset($_POST['delete_playlist'])){
 
     <h1 class="heading">playlist details</h1>
 
-<?php 
+<?php
     $select_playlist = $conn->prepare("SELECT * FROM `playlist` WHERE id = ? LIMIT 1");
     $select_playlist->execute([$get_id]);
-    
     if($select_playlist->rowCount() > 0){
         while($fetch_playlist = $select_playlist->fetch(PDO::FETCH_ASSOC)){
             $count_content = $conn->prepare("SELECT * FROM `content` WHERE playlist_id = ?");
@@ -73,7 +72,6 @@ if(isset($_POST['delete_playlist'])){
 ?>
 <div class="row">
     <div class="thumb">
-        
         <img src="../uploaded_files/<?= $fetch_playlist['thumb']; ?>" alt="">
         <div class="flex">
         <p><i class="fas fa-video"></i><span><?= $total_contents; ?></span></p>
@@ -115,8 +113,17 @@ if(isset($_POST['delete_playlist'])){
 
     <div class="box">
             <div class="flex">
-                
+                <p><i class="fas fa-circle-dot" style="color:<?php if($fetch_content['status'] == 'active'){echo 'limegreen';}else{echo 'red';}?>;"></i><span style="color:<?php if($fetch_content['status'] == 'active'){echo 'limegreen';}else{echo 'red';}?>;"><?= $fetch_content['status']; ?></span></p>
+                <p><i class="fas fa-calendar"></i><span><?= $fetch_content['date']; ?></span></p>
             </div>
+            <img src="../uploaded_files/<?= $fetch_content['thumb']; ?>" alt="">
+            <h3 class="title"><?= $fetch_content['title']; ?></h3>
+            <a href="view_content.php?get_id=<?= $fetch_content['id']; ?>" class="btn">view content</a>
+                <form action="" class="flex-btn">
+                    <input type="hidden" name="content_id" value="<?= $fetch_content['id']; ?>">
+                    <a href="update_content.php?get_id=<?= $fetch_content['id']; ?>" class="option-btn">update</a>
+                    <input type="submit" value="delete" name="delete-content" class="delete-btn">
+                </form>
     </div>
 
     <?php 
@@ -130,8 +137,6 @@ if(isset($_POST['delete_playlist'])){
     </div>
 
 </section>
-
-
 
 
 

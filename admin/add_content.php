@@ -29,7 +29,6 @@ if (isset($_POST['submit'])) {
     $video_ext = pathinfo($video, PATHINFO_EXTENSION);
     $rename_video ='playlist_' . create_unique_id() . '.' . $video_ext;
     $video_tmp_name = $_FILES['video']['tmp_name'];
-    $video_size = $_FILES['video']['size'];
     $video_folder = '../uploaded_files/' . $rename_video;
 
     $verify_content = $conn->prepare("SELECT * FROM `content` WHERE tutor_id = ? AND title = ? AND description = ? ");
@@ -38,11 +37,15 @@ if (isset($_POST['submit'])) {
     if ($verify_content->rowCount() > 0) {
         $message[] = 'content already created!';
     } else {
-        $add_content = $conn->prepare("INSERT INTO `content` (id, tutor_id, playlist_id, title, description, video, thumb, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $add_content->execute([$id, $tutor_id, $playlist_id, $title, $description, $rename_video, $rename_thumb, $status]);
-        move_uploaded_file($thumb_tmp_name, $thumb_folder);
-        move_uploaded_file($video_tmp_name, $video_folder);
-        $message[] = 'New content created!';
+        if($thumb_size > 2000000){
+            $message[] = 'image size is too large!';
+        }else{
+            $add_content = $conn->prepare("INSERT INTO `content` (id, tutor_id, playlist_id, title, description, video, thumb, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $add_content->execute([$id, $tutor_id, $playlist_id, $title, $description, $rename_video, $rename_thumb, $status]);
+            move_uploaded_file($thumb_tmp_name, $thumb_folder);
+            move_uploaded_file($video_tmp_name, $video_folder);
+            $message[] = 'New content created!';
+        }
     }
 
 }

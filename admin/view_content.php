@@ -75,7 +75,6 @@ $tutor_id = $_SESSION['tutor_id'];
 
 
 
-
 <?php include '../components/footer.php'; ?>
 
 <script src="../js/admin_script.js"></script>

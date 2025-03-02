@@ -95,7 +95,7 @@ if(isset($_POST['delete_playlist'])){
 
 
 
-<section class="playlist-form">
+<section class="crud-form">
 
 <h1 class="heading">update playlist</h1>
 
