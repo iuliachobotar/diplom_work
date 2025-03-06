@@ -24,8 +24,10 @@ if (isset($_POST['update'])) {
     $playlist_id = filter_var($_POST['playlist_id'], FILTER_SANITIZE_STRING);
 
     // Оновлення контенту в базі
-    $update_content = $conn->prepare("UPDATE `content` SET title = ?, description = ?, status = ? WHERE id = ?");
-    $update_content->execute([$title, $description, $status, $get_id]);
+
+    $update_content = $conn->prepare("UPDATE `content` SET title = ?, description = ?, status = ?, playlist_id = ? WHERE id = ? AND tutor_id = ? LIMIT 1");
+    $update_content->execute([$title, $description, $status, $playlist_id, $get_id, $tutor_id]);
+
 
     if (!empty($playlist_id)) {
         $update_playlist = $conn->prepare("UPDATE `content` SET playlist_id = ? WHERE id = ?");
@@ -38,7 +40,7 @@ if (isset($_POST['update'])) {
     $thumb = $_FILES['thumb']['name'] ?? '';
     $thumb = filter_var($thumb, FILTER_SANITIZE_STRING);
     $thumb_ext = pathinfo($thumb, PATHINFO_EXTENSION);
-    $rename_thumb = 'playlist_' . create_unique_id() . '.' . $thumb_ext;
+    $rename_thumb = 'playlist_thumb_' . uniqid('', true) . '.' . $thumb_ext;
     $thumb_tmp_name = $_FILES['thumb']['tmp_name'] ?? '';
     $thumb_size = $_FILES['thumb']['size'] ?? 0;
     $thumb_folder = '../uploaded_files/' . $rename_thumb;
@@ -47,7 +49,7 @@ if (isset($_POST['update'])) {
         if ($thumb_size > 2000000) {
             $message[] = 'image size is too large!';
         } else {
-            $update_thumb = $conn->prepare("UPDATE `content` SET thumb = ? WHERE id = ?");
+            $update_thumb = $conn->prepare("UPDATE `content` SET thumb = ? WHERE id = ? ");
             $update_thumb->execute([$rename_thumb, $get_id]);
 
             if (move_uploaded_file($thumb_tmp_name, $thumb_folder)) {
@@ -66,7 +68,7 @@ if (isset($_POST['update'])) {
     $video = $_FILES['video']['name'];
     $video = filter_var($video, FILTER_SANITIZE_STRING);
     $video_ext = pathinfo($video, PATHINFO_EXTENSION);
-    $rename_video = 'playlist_' . create_unique_id() . '.' . $video_ext;
+    $rename_video = 'playlist_video_' . uniqid('', true) . '.' . $video_ext;
     $video_tmp_name = $_FILES['video']['tmp_name'];
     $video_folder = '../uploaded_files/' . $rename_video;
 

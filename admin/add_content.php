@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
     $thumb = $_FILES['thumb']['name'];
     $thumb = filter_var($thumb, FILTER_SANITIZE_STRING);
     $thumb_ext = pathinfo($thumb, PATHINFO_EXTENSION);
-    $rename_thumb = 'playlist_' . create_unique_id() . '.' . $thumb_ext;
+    $rename_thumb = 'playlist_thumb_' . uniqid('', true) . '.' . $thumb_ext;
     $thumb_tmp_name = $_FILES['thumb']['tmp_name'];
     $thumb_size = $_FILES['thumb']['size'];
     $thumb_folder = '../uploaded_files/' . $rename_thumb;
@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
     $video = $_FILES['video']['name'];
     $video = filter_var($video, FILTER_SANITIZE_STRING);
     $video_ext = pathinfo($video, PATHINFO_EXTENSION);
-    $rename_video ='playlist_' . create_unique_id() . '.' . $video_ext;
+    $rename_video = 'playlist_video_' . uniqid('', true) . '.' . $video_ext;
     $video_tmp_name = $_FILES['video']['tmp_name'];
     $video_folder = '../uploaded_files/' . $rename_video;
 
