@@ -39,6 +39,29 @@ if(isset($_POST['delete_playlist'])){
     }
 }
 
+if(isset($_POST['delete_content'])){
+    $delete_id = $_POST['content_id'];
+    $delete_id = filter_var($delete_id, FILTER_SANITIZE_STRING);
+
+    $verify_content = $conn->prepare("SELECT * FROM `content` WHERE id = ?");
+    $verify_content->execute([$delete_id]);
+
+    if($verify_content->rowCount() > 0){
+        $fetch_content = $verify_content->fetch(PDO::FETCH_ASSOC);
+        unlink('../uploaded_files/'.$fetch_content['thumb']);
+        unlink('../uploaded_files/'.$fetch_content['video']);
+        $delete_comment = $conn->prepare("DELETE FROM `comments` WHERE content_id = ?");
+        $delete_comment->execute([$delete_id]);
+        $delete_likes = $conn->prepare("DELETE FROM `likes` WHERE content_id = ?");
+        $delete_likes->execute([$delete_id]);
+        $delete_content = $conn->prepare("DELETE FROM `content` WHERE id = ?");
+        $delete_content->execute([$delete_id]);
+        $message[] = 'content deleted successfully!';
+    }else{
+        $message[] = 'content already deleted!';
+    }
+}
+
 
 ?>
 
