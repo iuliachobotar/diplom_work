@@ -9,8 +9,8 @@ $tutor_id = $_SESSION['tutor_id'];
     header('location:login.php');
 }
 
-if(isset($_POST['delete-content'])){
-    $delete_id = $_POST['content-id'];
+if(isset($_POST['delete_content'])){
+    $delete_id = $_POST['content_id'];
     $delete_id = filter_var($delete_id, FILTER_SANITIZE_STRING);
 
     $verify_content = $conn->prepare("SELECT * FROM `content` WHERE id = ?");
@@ -75,7 +75,7 @@ if(isset($_POST['delete-content'])){
                 <form action="" class="flex-btn">
                     <input type="hidden" name="content_id" value="<?= $fetch_content['id']; ?>">
                     <a href="update_content.php?get_id=<?= $fetch_content['id']; ?>" class="option-btn">update</a>
-                    <input type="submit" value="delete" name="delete-content" class="delete-btn">
+                    <input type="submit" value="delete" name="delete_content" class="delete-btn">
                 </form>
     </div>
 

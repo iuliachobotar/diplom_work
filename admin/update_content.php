@@ -49,7 +49,7 @@ if (isset($_POST['update'])) {
         if ($thumb_size > 2000000) {
             $message[] = 'image size is too large!';
         } else {
-            $update_thumb = $conn->prepare("UPDATE `content` SET thumb = ? WHERE id = ? ");
+            $update_thumb = $conn->prepare("UPDATE `content` SET thumb = ? WHERE id = ? LIMIT 1");
             $update_thumb->execute([$rename_thumb, $get_id]);
 
             if (move_uploaded_file($thumb_tmp_name, $thumb_folder)) {
@@ -73,7 +73,7 @@ if (isset($_POST['update'])) {
     $video_folder = '../uploaded_files/' . $rename_video;
 
     if (!empty($video)) {
-        $update_video = $conn->prepare("UPDATE `content` SET video = ? WHERE id = ?");
+        $update_video = $conn->prepare("UPDATE `content` SET video = ? WHERE id = ? LIMIT 1");
         $update_video->execute([$rename_video, $get_id]);
         move_uploaded_file($video_tmp_name, $video_folder);
         if ($old_video != '') {
@@ -84,8 +84,8 @@ if (isset($_POST['update'])) {
     $message[] = 'content updated!';
 }
 
-if(isset($_POST['delete-content'])){
-    $delete_id = $_POST['content-id'];
+if(isset($_POST['delete_content'])){
+    $delete_id = $_POST['content_id'];
     $delete_id = filter_var($delete_id, FILTER_SANITIZE_STRING);
 
     $verify_content = $conn->prepare("SELECT * FROM `content` WHERE id = ?");
