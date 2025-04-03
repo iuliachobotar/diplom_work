@@ -99,7 +99,7 @@ if(isset($_POST['delete_content'])){
         $delete_comment->execute([$delete_id]);
         $delete_likes = $conn->prepare("DELETE FROM `likes` WHERE content_id = ?");
         $delete_likes->execute([$delete_id]);
-        $delete_content = $conn->prepare("DELETE FROM `content` WHERE id = ?");
+        $delete_content = $conn->prepare("DELETE FROM `content` WHERE id = ? LIMIT 1");
         $delete_content->execute([$delete_id]);
         $message[] = 'content deleted successfully!';
     }else{

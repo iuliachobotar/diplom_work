@@ -24,7 +24,7 @@ if(isset($_POST['delete_content'])){
         $delete_comment->execute([$delete_id]);
         $delete_likes = $conn->prepare("DELETE FROM `likes` WHERE content_id = ?");
         $delete_likes->execute([$delete_id]);
-        $delete_content = $conn->prepare("DELETE FROM `content` WHERE id = ?");
+        $delete_content = $conn->prepare("DELETE FROM `content` WHERE id = ? LIMIT 1");
         $delete_content->execute([$delete_id]);
         $message[] = 'content deleted successfully!';
     }else{
@@ -72,7 +72,7 @@ if(isset($_POST['delete_content'])){
             <img src="../uploaded_files/<?= $fetch_content['thumb']; ?>" alt="">
             <h3 class="title"><?= $fetch_content['title']; ?></h3>
             <a href="view_content.php?get_id=<?= $fetch_content['id']; ?>" class="btn">view content</a>
-                <form action="" class="flex-btn">
+                <form action="" method="post" class="flex-btn">
                     <input type="hidden" name="content_id" value="<?= $fetch_content['id']; ?>">
                     <a href="update_content.php?get_id=<?= $fetch_content['id']; ?>" class="option-btn">update</a>
                     <input type="submit" value="delete" name="delete_content" class="delete-btn">
