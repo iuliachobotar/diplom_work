@@ -130,8 +130,9 @@ if(isset($_POST['delete_content'])){
 
     <?php
     // Замість вибору всього контенту, вибираємо тільки той, що має id, передане в URL
-    $select_content = $conn->prepare("SELECT * FROM `content` WHERE id = ?");
-    $select_content->execute([$get_id]);
+
+    $select_content = $conn->prepare("SELECT * FROM content WHERE id = ? AND tutor_id = ?");
+    $select_content->execute([$get_id, $tutor_id]);
     
     if ($select_content->rowCount() > 0) {
         $fetch_content = $select_content->fetch(PDO::FETCH_ASSOC);

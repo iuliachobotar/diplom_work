@@ -10,6 +10,14 @@ $tutor_id = $_SESSION['tutor_id'];
     header('location:login.php');
 }
 
+if (isset($_GET['get_id'])) {
+    $get_id = $_GET['get_id'];
+} else {
+    $get_id = '';
+    header('location:playlists.php');
+    exit();
+}
+
 
 
 ?>
@@ -29,7 +37,13 @@ $tutor_id = $_SESSION['tutor_id'];
 
 <?php include '../components/admin_header.php'; ?>
 
+<section class="view-content">
 
+<?php 
+
+?>
+
+</section>
 
 
 
