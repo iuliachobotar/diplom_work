@@ -55,6 +55,14 @@ body.active {
     padding-left: 0;
 }
 
+body.dark {
+    --white: #222;
+    --black: #fff;
+    --light-color: #aaa;
+    --light-bg: #333;
+    --border: .1rem solid rgba(255, 255, 255, .2);
+}
+
 section {
     padding: 2rem;
     margin: 0 auto;
@@ -920,6 +928,20 @@ margin-right: 1rem;
 .comments .box-container .box .comment-content{
     color: var(--white);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
