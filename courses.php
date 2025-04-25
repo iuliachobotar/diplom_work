@@ -28,7 +28,54 @@ if(isset($_SESSION['user_id'])){
 
 <?php include 'components/user_header.php'; ?>
 
+<section class="course">
 
+    <h1 class="heading">all courses</h1>
+
+    <div class="box-container">
+
+        <?php 
+        $select_courses = $conn->prepare("SELECT * FROM `playlist` WHERE status = ? ORDER BY date DESC");
+        $select_courses->execute(['active']);
+        if($select_courses->rowCount() > 0){
+            while($fetch_course = $select_courses->fetch(PDO::FETCH_ASSOC)){
+                $course_id = $fetch_course['id'];
+
+                $count_course = $conn->prepare("SELECT * FROM `content` WHERE playlist_id = ?");
+                $count_course->execute([$course_id]);
+                $total_courses = $count_course->rowCount();
+
+                $select_tutor = $conn->prepare("SELECT * FROM `tutor` WHERE id = ?");
+                $select_tutor->execute([$fetch_course['tutor_id']]);
+                $fetch_tutor = $select_tutor->fetch(PDO::FETCH_ASSOC);
+        ?>
+
+        <div class="box">
+                <div class="tutor">
+                    <img src="uploaded_files/<?= $fetch_tutor['image']; ?>" alt="">
+                    <div>
+                        <h3><?= $fetch_tutor['name']; ?></h3>
+                        <span><?= $fetch_course['date']; ?></span>
+                    </div>
+                </div>
+                <div class="thumb">
+                    <span><?= $total_courses; ?></span>
+                    <img src="uploaded_files/<?= $fetch_course['thumb']; ?>" alt="">
+                </div>
+                <h3 class="title"><?= $fetch_course['title']; ?></h3>
+                <a href="playlist.php?get_id=<?= $course_id; ?>" class="inline-btn">view course</a>
+        </div>
+
+        <?php 
+            }
+        }else{
+            echo '<p class="empty">no courses added yet!</p>';
+        }
+        ?>
+
+    </div>
+
+</section>
 
 
 
