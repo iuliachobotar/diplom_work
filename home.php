@@ -9,17 +9,17 @@ if(isset($_SESSION['user_id'])){
     $user_id = '';
 }
 
-$cout_likes = $conn->prepare("SELECT * FROM `likes` WHERE user_id = ?");
-$cout_likes->execute([$user_id]);
-$total_likes = $cout_likes->rowCount();
+$count_likes = $conn->prepare("SELECT * FROM `likes` WHERE user_id = ?");
+$count_likes->execute([$user_id]);
+$total_likes = $count_likes->rowCount();
 
-$cout_comments = $conn->prepare("SELECT * FROM `comments` WHERE user_id = ?");
-$cout_comments->execute([$user_id]);
-$total_comments = $cout_comments->rowCount();
+$count_comments = $conn->prepare("SELECT * FROM `comments` WHERE user_id = ?");
+$count_comments->execute([$user_id]);
+$total_comments = $count_comments->rowCount();
 
-$cout_bookmark = $conn->prepare("SELECT * FROM `bookmark` WHERE user_id = ?");
-$cout_bookmark->execute([$user_id]);
-$total_bookmark = $cout_bookmark->rowCount();
+$count_bookmark = $conn->prepare("SELECT * FROM `bookmark` WHERE user_id = ?");
+$count_bookmark->execute([$user_id]);
+$total_bookmark = $count_bookmark->rowCount();
 
 
 ?>

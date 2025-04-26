@@ -9,6 +9,33 @@ if(isset($_SESSION['user_id'])){
     $user_id = '';
 }
 
+if(isset($_POST['submit'])){
+
+    $name = $_POST['name'];
+    $name = filter_var($name, FILTER_SANITIZE_STRING);
+
+    $email = $_POST['email'];
+    $email = filter_var($email, FILTER_SANITIZE_STRING);
+
+    $number = $_POST['number'];
+    $number = filter_var($number, FILTER_SANITIZE_STRING);
+
+    $msg = $_POST['msg'];
+    $msg = filter_var($msg, FILTER_SANITIZE_STRING);
+
+    $verify_contact = $conn->prepare("SELECT * FROM `contact` WHERE name = ?	AND email = ? AND number = ? AND message = ?");
+    $verify_contact->execute([$name, $email, $number, $msg]);
+
+    if($verify_contact->rowCount() > 0){
+        $message[] = 'message sent already!';
+    }else{
+        $send_message = $conn->prepare("INSERT INTO `contact` (name, email, number, message	) VALUES (?, ?, ?, ?)");
+        $send_message->execute([$name, $email, $number, $msg]);
+        $message[] = 'message sent successffully!';
+    }
+
+}
+
 ?>
 
 
@@ -28,7 +55,52 @@ if(isset($_SESSION['user_id'])){
 
 <?php include 'components/user_header.php'; ?>
 
+<section class="contact">
 
+    <div class="row">
+
+        <div class="image">
+            <img src="images/contact-img.svg" alt="">
+        </div>
+
+        <form action="" method="post">
+            <h3>get in touch</h3>
+            <input type="text" class="box" required maxlength="50" name="name" placeholder="please enter your name">
+            <input type="email" class="box" required maxlength="50" name="email" placeholder="please enter your email">
+            <input type="number" class="box" required maxlength="10" name="number" placeholder="please enter your number">
+            <textarea name="msg" class="box" required maxlength="1000" placeholder="enter your message" cols="30" rows="10"></textarea>
+            <input type="submit" value="send message" class="inline-btn" name="submit">
+
+
+        </form>
+
+    </div>
+
+    <div class="box-container">
+
+    <div class="box">
+        <i class="fas fa-phone"></i>
+        <h3>phone number</h3>
+        <a href="tel:1234567890">123-456-7890</a>
+        <a href="tel:1112223333">111-222-3333</a>
+    </div>
+
+    <div class="box">
+        <i class="fas fa-envelope"></i>
+        <h3>email address</h3>
+        <a href="mailto:chobotarlyly@gmail.com">chobotarlyly@gmail.com</a>
+        <a href="mailto:chobotar_ly@gmail.com">chobotar_ly@gmail.com</a>
+    </div>
+
+    <div class="box">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>office address</h3>
+        <a href="#">56 Potebni Street, Lutsk, Volyn region</a>
+    </div>
+
+    </div>
+
+</section>
 
 
 
