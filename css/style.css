@@ -1130,6 +1130,62 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+.form-container{
+    min-height: calc(100vh - 10rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container form{
+    width: 80rem;
+    background-color: var(--white);
+    border-radius: .5rem;
+    padding: 2rem;
+}
+
+.form-container .login{
+    width: 50rem;
+}
+
+.form-container form h3{
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--black);
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+}
+
+.form-container form .flex{
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.form-container form .flex .col{
+    flex: 1 1 35rem;
+}
+
+.form-container form p{
+    padding-top: 1rem;
+    font-size: 1.7rem;
+    color: var(--light-color);
+}
+
+.form-container form p span{
+    color: var(--red);
+}
+
+.form-container form .box{
+    width: 100%;
+    border-radius: .5rem;
+    margin: 1rem 0;
+    padding: 1.4rem;
+    font-size: 1.8rem;
+    color: var(--black);
+    background-color: var(--light-bg);
+}
+
 
 
 

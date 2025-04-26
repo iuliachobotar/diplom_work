@@ -52,7 +52,7 @@ if (isset($message) && is_array($message)) {
         ?>
     <img src="uploaded_files/<?= $fetch_profile['image']; ?>" alt="">
     <h3><?= $fetch_profile['name']; ?></h3>
-    <span><?= $fetch_profile['profession']; ?></span>
+    <span>student</span>
     <a href="profile.php" class="btn">view profile</a>
     <div class="flex-btn">
             <a href="login.php" class="option-btn">login</a>
@@ -90,7 +90,7 @@ if (isset($message) && is_array($message)) {
         ?>
     <img src="uploaded_files/<?= $fetch_profile['image']; ?>" alt="">
     <h3><?= $fetch_profile['name']; ?></h3>
-    <span><?= $fetch_profile['profession']; ?></span>
+    <span>student</span>
     <a href="profile.php" class="btn">view profile</a>
         <?php
                 }else{     

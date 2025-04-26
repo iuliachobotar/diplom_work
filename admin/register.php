@@ -19,10 +19,11 @@ if (isset($_POST['submit'])) {
     $image = $_FILES['image']['name'];
     $image = filter_var($image, FILTER_SANITIZE_STRING);
     $ext = pathinfo($image, PATHINFO_EXTENSION);
-    $rename = create_unique_id() . '.' . $ext;
+    $rename = create_unique_id() . '.' . $ext; 
     $image_tmp_name = $_FILES['image']['tmp_name'];
     $image_size = $_FILES['image']['size'];
     $image_folder = '../uploaded_files/' . $rename;
+    
 
     $select_tutor_email = $conn->prepare("SELECT * FROM `tutor` WHERE email = ?");
     $select_tutor_email->execute([$email]);

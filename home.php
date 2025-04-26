@@ -132,7 +132,7 @@ $total_bookmark = $count_bookmark->rowCount();
 
         <div class="box">
                 <div class="tutor">
-                    <img src="uploaded_files/<?= $fetch_tutor['image']; ?>" alt="">
+                    <img src="../uploaded_files/<?= $fetch_tutor['image']; ?>" alt="">
                     <div>
                         <h3><?= $fetch_tutor['name']; ?></h3>
                         <span><?= $fetch_course['date']; ?></span>
