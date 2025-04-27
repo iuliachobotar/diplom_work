@@ -7,7 +7,9 @@ if(isset($_SESSION['user_id'])){
     $user_id = $_SESSION['user_id'];
 }else{
     $user_id = '';
+    
 }
+
 
 $count_likes = $conn->prepare("SELECT * FROM `likes` WHERE user_id = ?");
 $count_likes->execute([$user_id]);
@@ -47,7 +49,9 @@ $total_bookmark = $count_bookmark->rowCount();
 
     <div class="box-container">
 
-    <?php if($user_id != ''){ ?>
+        <?php 
+        if($user_id != ''){ 
+        ?>
         <div class="box">
             <h3 class="title">likes and comments</h3>
             <p>total likes : <span><?= $total_likes; ?></span></p>
@@ -57,14 +61,16 @@ $total_bookmark = $count_bookmark->rowCount();
             <p>playlist saved : <span><?= $total_bookmark; ?></span></p>
             <a href="bookmark.php" class="inline-btn">view bookmark</a>
         </div>
-        <?php }else{ ?>
+        <?php 
+            }else{ 
+        ?>
             <div class="box" style="text-align: center;">
             <h3 class="title">login or register</h3>
             <div class="flex-btn">
                 <a href="login.php" class="option-btn">login</a>
                 <a href="register.php" class="option-btn">register</a>
             </div>
-        </div>
+            </div>
         <?php } ?>
 
         <div class="box">
@@ -89,7 +95,7 @@ $total_bookmark = $count_bookmark->rowCount();
             <a href="#"><i class="fa-solid fa-pen-nib"></i><span>Illustrator</span></a>
 
             <a href="#"><i class="fab fa-html5"></i><span>HTML</span></a>
-            <a href="#"><i class="fab fa-css5"></i><span>CSS</span></a>
+            <a href="#"><i class="fab fa-css3"></i><span>CSS</span></a>
             <a href="#"><i class="fab fa-js"></i><span>javascript</span></a>
             <a href="#"><i class="fab fa-react"></i><span>react</span></a>
             <a href="#"><i class="fab fa-php"></i><span>PHP</span></a>
@@ -132,7 +138,7 @@ $total_bookmark = $count_bookmark->rowCount();
 
         <div class="box">
                 <div class="tutor">
-                    <img src="../uploaded_files/<?= $fetch_tutor['image']; ?>" alt="">
+                    <img src="uploaded_files/<?= $fetch_tutor['image']; ?>" alt="">
                     <div>
                         <h3><?= $fetch_tutor['name']; ?></h3>
                         <span><?= $fetch_course['date']; ?></span>

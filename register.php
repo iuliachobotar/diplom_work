@@ -2,7 +2,6 @@
 session_start();
 include 'components/connect.php';
 
-
 if(isset($_SESSION['user_id'])){
     $user_id = $_SESSION['user_id'];
 }else{
@@ -19,10 +18,10 @@ if (isset($_POST['submit'])) {
     $image = $_FILES['image']['name'];
     $image = filter_var($image, FILTER_SANITIZE_STRING);
     $ext = pathinfo($image, PATHINFO_EXTENSION);
-    $rename =  create_unique_id() . '.' . $ext; 
+    $rename = 'users_' . create_unique_id() . '.' . $ext; 
     $image_tmp_name = $_FILES['image']['tmp_name'];
     $image_size = $_FILES['image']['size'];
-    $image_folder = '../uploaded_files/' . $rename;
+    $image_folder = 'uploaded_files/' . $rename;
     
 
     $select_user_email = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
@@ -41,8 +40,8 @@ if (isset($_POST['submit'])) {
                 $insert_user->execute([$id, $name, $email, $c_pass, $rename]);
                 move_uploaded_file($image_tmp_name, $image_folder);
 
-                $verify_user = $conn->prepare("SELECT * FROM `users` WHERE email = ? AND password = ? LIMIT 1");
-                $verify_user->execute([$email, $c_pass]);
+                $verify_user = $conn->prepare("SELECT * FROM `users` WHERE id = ? LIMIT 1");
+                $verify_user->execute([$id]);
                 $row = $verify_user->fetch(PDO::FETCH_ASSOC);
 
                 if ($insert_user) {

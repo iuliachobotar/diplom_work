@@ -25,6 +25,16 @@ $count_comments = $conn->prepare("SELECT * FROM `comments` WHERE tutor_id = ?");
 $count_comments->execute([$tutor_id]);
 $total_comments = $count_comments->rowCount();
 
+$select_profile = $conn->prepare("SELECT * FROM `tutor` WHERE id = ?");
+$select_profile->execute([$tutor_id]);
+
+if ($select_profile->rowCount() > 0) {
+    $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+} else {
+    $fetch_profile = ['name' => 'Unknown Tutor'];
+}
+
+
 ?>
 
 <!DOCTYPE html>
