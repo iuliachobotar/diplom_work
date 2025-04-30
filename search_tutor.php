@@ -32,7 +32,7 @@ if(isset($_SESSION['user_id'])){
 
     <h1 class="heading">expert tutors</h1>
 
-    <form action="search_tutor.php" method="post" class="tutor-search">
+    <form action="" method="post" class="tutor-search">
         <input type="text" name="search_tutor_box" placeholder="search tutors" maxlength="100" required>
         <button type="submit" name="search_tutor_btn" class="fas fa-search"></button>
     </form>

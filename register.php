@@ -8,6 +8,7 @@ if(isset($_SESSION['user_id'])){
     $user_id = '';
 }
 
+
 if (isset($_POST['submit'])) {
     $id = create_unique_id();
     $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
@@ -46,7 +47,7 @@ if (isset($_POST['submit'])) {
 
                 if ($insert_user) {
                     if ($verify_user->rowCount() > 0) {
-                        $_SESSION['user_id'] = $row['id']; 
+                        $_SESSION['user_id'] = $row['id'];
                         header('location:home.php');
                         exit();
                     } else {

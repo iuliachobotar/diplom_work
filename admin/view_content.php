@@ -84,7 +84,7 @@ if(isset($_POST['delete_comment'])){
     
     if ($select_content->rowCount() > 0) {
         while($fetch_content = $select_content->fetch(PDO::FETCH_ASSOC)){
-            $content_id = &$fetch_content['id'];
+            $content_id = $fetch_content['id'];
 
             $count_likes = $conn->prepare("SELECT * FROM `likes` WHERE tutor_id = ? AND content_id = ?");
             $count_likes->execute([$tutor_id, $content_id]);

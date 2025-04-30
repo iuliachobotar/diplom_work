@@ -27,7 +27,7 @@ if(isset($_POST['save_list'])){
         $verify_list->execute([$user_id, $list_id]);
 
         if($verify_list->rowCount() > 0){
-            $remove_list = $conn->prepare("DELETE FROM `bookmark` WHERE user_id AND playlist_id = ?");
+            $remove_list = $conn->prepare("DELETE FROM `bookmark` WHERE user_id = ? AND playlist_id = ?");
             $remove_list->execute([$user_id, $list_id]);
             $message[] = 'playlist removed!';
         }else{

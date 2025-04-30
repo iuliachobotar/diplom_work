@@ -142,10 +142,10 @@ if(isset($_POST['delete_content'])){
             <img src="../uploaded_files/<?= $fetch_content['thumb']; ?>" alt="">
             <h3 class="title"><?= $fetch_content['title']; ?></h3>
             <a href="view_content.php?get_id=<?= $fetch_content['id']; ?>" class="btn">view content</a>
-                <form action="" class="flex-btn">
+                <form action="" method="post" class="flex-btn">
                     <input type="hidden" name="content_id" value="<?= $fetch_content['id']; ?>">
                     <a href="update_content.php?get_id=<?= $fetch_content['id']; ?>" class="option-btn">update</a>
-                    <input type="submit" value="delete" name="delete-content" class="delete-btn">
+                    <input type="submit" value="delete" name="delete_content" class="delete-btn">
                 </form>
     </div>
 

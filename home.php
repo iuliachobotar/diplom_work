@@ -7,21 +7,19 @@ if(isset($_SESSION['user_id'])){
     $user_id = $_SESSION['user_id'];
 }else{
     $user_id = '';
-    
 }
 
+$cout_likes = $conn->prepare("SELECT * FROM `likes` WHERE user_id = ?");
+$cout_likes->execute([$user_id]);
+$total_likes = $cout_likes->rowCount();
 
-$count_likes = $conn->prepare("SELECT * FROM `likes` WHERE user_id = ?");
-$count_likes->execute([$user_id]);
-$total_likes = $count_likes->rowCount();
+$cout_comments = $conn->prepare("SELECT * FROM `comments` WHERE user_id = ?");
+$cout_comments->execute([$user_id]);
+$total_comments = $cout_comments->rowCount();
 
-$count_comments = $conn->prepare("SELECT * FROM `comments` WHERE user_id = ?");
-$count_comments->execute([$user_id]);
-$total_comments = $count_comments->rowCount();
-
-$count_bookmark = $conn->prepare("SELECT * FROM `bookmark` WHERE user_id = ?");
-$count_bookmark->execute([$user_id]);
-$total_bookmark = $count_bookmark->rowCount();
+$cout_bookmark = $conn->prepare("SELECT * FROM `bookmark` WHERE user_id = ?");
+$cout_bookmark->execute([$user_id]);
+$total_bookmark = $cout_bookmark->rowCount();
 
 
 ?>
@@ -49,9 +47,7 @@ $total_bookmark = $count_bookmark->rowCount();
 
     <div class="box-container">
 
-        <?php 
-        if($user_id != ''){ 
-        ?>
+    <?php if($user_id != ''){ ?>
         <div class="box">
             <h3 class="title">likes and comments</h3>
             <p>total likes : <span><?= $total_likes; ?></span></p>
@@ -61,16 +57,14 @@ $total_bookmark = $count_bookmark->rowCount();
             <p>playlist saved : <span><?= $total_bookmark; ?></span></p>
             <a href="bookmark.php" class="inline-btn">view bookmark</a>
         </div>
-        <?php 
-            }else{ 
-        ?>
+        <?php }else{ ?>
             <div class="box" style="text-align: center;">
             <h3 class="title">login or register</h3>
             <div class="flex-btn">
                 <a href="login.php" class="option-btn">login</a>
                 <a href="register.php" class="option-btn">register</a>
             </div>
-            </div>
+        </div>
         <?php } ?>
 
         <div class="box">
@@ -95,7 +89,7 @@ $total_bookmark = $count_bookmark->rowCount();
             <a href="#"><i class="fa-solid fa-pen-nib"></i><span>Illustrator</span></a>
 
             <a href="#"><i class="fab fa-html5"></i><span>HTML</span></a>
-            <a href="#"><i class="fab fa-css3"></i><span>CSS</span></a>
+            <a href="#"><i class="fab fa-css5"></i><span>CSS</span></a>
             <a href="#"><i class="fab fa-js"></i><span>javascript</span></a>
             <a href="#"><i class="fab fa-react"></i><span>react</span></a>
             <a href="#"><i class="fab fa-php"></i><span>PHP</span></a>
@@ -127,8 +121,8 @@ $total_bookmark = $count_bookmark->rowCount();
             while($fetch_course = $select_courses->fetch(PDO::FETCH_ASSOC)){
                 $course_id = $fetch_course['id'];
 
-                $count_course = $conn->prepare("SELECT * FROM `content` WHERE playlist_id = ? AND status = ?");
-                $count_course->execute([$course_id, 'active']);
+                $count_course = $conn->prepare("SELECT * FROM `content` WHERE playlist_id = ?");
+                $count_course->execute([$course_id]);
                 $total_courses = $count_course->rowCount();
 
                 $select_tutor = $conn->prepare("SELECT * FROM `tutor` WHERE id = ?");

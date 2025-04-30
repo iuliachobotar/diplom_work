@@ -17,11 +17,11 @@ if(isset($_POST['delete_comment'])){
     $verify_comment->execute([$delete_id]);
 
     if($verify_comment->rowCount() > 0){
-        $delete_comment = $conn->prepare("DELETE FROM `comments` WHERE id = ?");
+        $delete_comment = $conn->prepare("DELETE FROM `comments` WHERE id = ? LIMIT 1");
         $delete_comment->execute([$delete_id]);
-        $message[''] = 'comment already successfully!';
+        $message[] = 'comment already successfully!';
     }else{
-        $message[''] = 'comment already deleted!';
+        $message[] = 'comment already deleted!';
     }
 }
 
@@ -54,7 +54,7 @@ if(isset($_POST['delete_comment'])){
                     while($fetch_comment = $select_comments->fetch(PDO::FETCH_ASSOC)){
                         $comment_id = $fetch_comment['id'];
                         
-                        $select_comments = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+                        $select_commentor = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
                         $select_commentor->execute([$comment_id]);
                         $fetch_commentor = $select_commentor->fetch(PDO::FETCH_ASSOC);
 
@@ -73,10 +73,10 @@ if(isset($_POST['delete_comment'])){
                             <span><?= $fetch_comment['date']; ?></span>
                         </div>
                     </div>
-                    <p class="comment-box"><?= $fetch_commentor['comment']; ?></p>
+                    <p class="comment-box"><?= $fetch_comment['comment']; ?></p>
                     <form action="" method="post">
-                        <input type="hidden" name="comment_id" value="<?= $fetch_commentor['id']; ?>">
-                        <input type="submit" value="delete comment" name="delete_comment" class="inline-delete-btn">
+                        <input type="hidden" name="comment_id" value="<?= $fetch_comment['id']; ?>">
+                        <input type="submit" value="delete comment" name="delete_comment" class="inline-delete-btn" onclick="return confirm('delete this comment?');">
                     </form>            
                 </div>
 
