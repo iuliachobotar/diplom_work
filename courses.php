@@ -41,8 +41,8 @@ if(isset($_SESSION['user_id'])){
             while($fetch_course = $select_courses->fetch(PDO::FETCH_ASSOC)){
                 $course_id = $fetch_course['id'];
 
-                $count_course = $conn->prepare("SELECT * FROM `content` WHERE playlist_id = ?");
-                $count_course->execute([$course_id]);
+                $count_course = $conn->prepare("SELECT * FROM `content` WHERE playlist_id = ? AND status = ?");
+                $count_course->execute([$course_id, 'active']);
                 $total_courses = $count_course->rowCount();
 
                 $select_tutor = $conn->prepare("SELECT * FROM `tutor` WHERE id = ?");
