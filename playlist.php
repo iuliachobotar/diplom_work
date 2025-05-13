@@ -29,12 +29,12 @@ if(isset($_POST['save_list'])){
         if($verify_list->rowCount() > 0){
             $remove_list = $conn->prepare("DELETE FROM `bookmark` WHERE user_id = ? AND playlist_id = ?");
             $remove_list->execute([$user_id, $list_id]);
-            $message[] = 'playlist removed!';
+            $message[] = 'плейлист вилучено!';
         }else{
             
             $add_list = $conn->prepare("INSERT INTO `bookmark` (user_id, playlist_id) VALUES (?, ?)");
             $add_list->execute([$user_id, $list_id]);
-            $message[] = 'playlist saved!';
+            $message[] = 'плейлист збережено!';
             
         }
 
@@ -42,7 +42,7 @@ if(isset($_POST['save_list'])){
 
         
     }else{
-        $message[] = 'please login first!';
+        $message[] = 'будь ласка, увійдіть спочатку!';
     }
 
 }
@@ -68,7 +68,7 @@ if(isset($_POST['save_list'])){
 
 <section class="playlist-details">
 
-    <h1 class="heading">playlist details</h1>
+    <h1 class="heading">деталі курсу</h1>
 
     <div class="row">
 
@@ -97,9 +97,9 @@ if(isset($_POST['save_list'])){
                 <form action="" method="post">
                     <input type="hidden" name="list_id" value="<?= $playlist_id; ?>">
                     <?php if($select_bookmark->rowCount() > 0){ ?>
-                    <button type="submit" name="save_list" class="inline-btn"><i class="fas fa-bookmark"></i><span>saved</span></button>
+                    <button type="submit" name="save_list" class="inline-btn"><i class="fas fa-bookmark"></i><span>збережено</span></button>
                     <?php  }else{?>
-                    <button type="submit" name="save_list" class="inline-option-btn"><i class="far fa-bookmark"></i><span>save list</span></button>
+                    <button type="submit" name="save_list" class="inline-option-btn"><i class="far fa-bookmark"></i><span>зберегти</span></button>
                     <?php } ?>
                 </form>
                 <div class="thumb">
@@ -123,7 +123,7 @@ if(isset($_POST['save_list'])){
     <?php 
             }
         }else{
-            echo '<p class="empty">playlist was not found!</p>';
+            echo '<p class="empty">плейлист не знайдено!</p>';
         }
     ?>
 
@@ -133,7 +133,7 @@ if(isset($_POST['save_list'])){
 
 <section class="playlist-videos">
 
-    <h1 class="heading">playlist videos</h1>
+    <h1 class="heading">уроки плейлиста</h1>
 
     <div class="box-container">
 
@@ -153,7 +153,7 @@ if(isset($_POST['save_list'])){
         <?php 
             }
         }else{
-            echo '<p class="empty">content not added yet!</p>';
+            echo '<p class="empty">вміст ще не додано!</p>';
         }
         ?>
 

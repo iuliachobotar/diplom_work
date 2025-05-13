@@ -51,9 +51,9 @@ if(isset($_POST['delete_comment'])){
     if($verify_comment->rowCount() > 0){
         $delete_comment = $conn->prepare("DELETE FROM `comments` WHERE id = ?");
         $delete_comment->execute([$delete_id]);
-        $message[''] = 'comment already successfully!';
+        $message[''] = 'коментувати успішно видалено!';
     }else{
-        $message[''] = 'comment already deleted!';
+        $message[''] = 'коментар вже видалено!';
     }
 }
 
@@ -106,15 +106,15 @@ if(isset($_POST['delete_comment'])){
         <p class="description"><?= $fetch_content['description']; ?></p>
         <form action="" method="post" class="flex-btn">
             <input type="hidden" name="content_id" value="<?= $content_id; ?>">
-            <input type="submit" value="delete content" name="delete_content" class="delete-btn">
-            <a href="update_content.php?get_id=<?= $content_id; ?>" class="option-btn">update content</a>
+            <input type="submit" value="видалити" name="delete_content" class="delete-btn">
+            <a href="update_content.php?get_id=<?= $content_id; ?>" class="option-btn">редагувати</a>
         </form>
     </div>
 
     <?php
         }
         } else {
-            echo '<p class="empty">content was not found!</p>';
+            echo '<p class="empty">уроків не знайдено!</p>';
         }
     ?>
 
@@ -122,7 +122,7 @@ if(isset($_POST['delete_comment'])){
 
 <section class="comments">
 
-        <h1 class="heading">user comments</h1>
+        <h1 class="heading">коментарі користувачів</h1>
 
         <div class="box-container">
             <?php
@@ -144,17 +144,17 @@ if(isset($_POST['delete_comment'])){
                             <span><?= $fetch_comment['date']; ?></span>
                         </div>
                     </div>
-                    <p class="comment-box"><?= $fetch_commentor['comment']; ?></p>
+                    <p class="comment-box"><?= $fetch_comment['comment']; ?></p>
                     <form action="" method="post">
-                        <input type="hidden" name="comment_id" value="<?= $fetch_commentor['id']; ?>">
-                        <input type="submit" value="delete comment" name="delete_comment" class="inline-delete-btn">
+                        <input type="hidden" name="comment_id" value="<?= $fetch_comment['id']; ?>">
+                        <input type="submit" value="видалити" name="delete_comment" class="inline-delete-btn">
                     </form>            
                 </div>
 
             <?php 
                 }
                 }else{
-                    echo'<p class="empty">no comments added yet!</p>';
+                    echo'<p class="empty">коментарів ще не додано!</p>';
                 }
             ?>
 

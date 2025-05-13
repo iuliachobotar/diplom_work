@@ -60,7 +60,7 @@ if(isset($_POST['delete'])){
 
 <section class="course">
 
-    <h1 class="heading">saved playlists</h1>
+    <h1 class="heading">збережено плейлистів</h1>
 
     <div class="box-container">
 
@@ -100,19 +100,19 @@ if(isset($_POST['delete'])){
                 <h3 class="title"><?= $fetch_course['title']; ?></h3>
                 <form action="" method="post" class="flex-btn">
                     <input type="hidden" name="delete_id" value="<?= $course_id; ?>">
-                    <a href="playlist.php?get_id=<?= $course_id; ?>" class="inline-btn">view course</a>
-                    <input type="submit" value="remove" name="delete" class="inline-delete-btn" onclick="return confirm('remove from bookmark?');">
+                    <a href="playlist.php?get_id=<?= $course_id; ?>" class="inline-btn">переглянути</a>
+                    <input type="submit" value="вилучити" name="delete" class="inline-delete-btn" onclick="return confirm('remove from bookmark?');">
                 </form>
             </div>
 
         <?php 
             }
         }else{
-            echo '<p class="empty">no courses added yet!</p>';
+            echo '<p class="empty">курсів ще не додано!</p>';
         }
     }
         }else{
-            echo '<p class="empty">nothing bookmarked yet!</p>';
+            echo '<p class="empty">ще нічого не збережено!</p>';
         }
         ?>
 

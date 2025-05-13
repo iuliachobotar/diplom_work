@@ -32,7 +32,7 @@ if (isset($message) && is_array($message)) {
     <a href="home.php" class="logo">Educa.</a>
 
     <form action="search_course.php" method="post" class="search-form">
-        <input type="text" placeholder="search here..." required maxlength="100" name="search_box">
+        <input type="text" placeholder="шукай тут..." required maxlength="100" name="search_box">
         <button type="submit" class="fas fa-search" name="search_btn"></button>
     </form>
 
@@ -52,20 +52,20 @@ if (isset($message) && is_array($message)) {
         ?>
     <img src="uploaded_files/<?= $fetch_profile['image']; ?>" alt="">
     <h3><?= $fetch_profile['name']; ?></h3>
-    <span>student</span>
-    <a href="profile.php" class="btn">view profile</a>
+    <span>студент</span>
+    <a href="profile.php" class="btn">профіль</a>
     <div class="flex-btn">
-            <a href="login.php" class="option-btn">login</a>
-            <a href="register.php" class="option-btn">register</a>
+            <a href="login.php" class="option-btn">вхід</a>
+            <a href="register.php" class="option-btn">реєстрація</a>
     </div>
-            <a href="components/user_logout.php" onclick="return confirm ('logout from this website?');" class="delete-btn">logout</a>
+            <a href="components/user_logout.php" onclick="return confirm ('logout from this website?');" class="delete-btn">вийти</a>
         <?php
                 }else{
         ?>
-        <h3>please login first</h3>
+        <h3>будь ласка, спершу увійдіть</h3>
     <div class="flex-btn">
-            <a href="login.php" class="option-btn">login</a>
-            <a href="register.php" class="option-btn">register</a>
+            <a href="login.php" class="option-btn">вхід</a>
+            <a href="register.php" class="option-btn">реєстрація</a>
     </div>
         <?php
         }
@@ -90,15 +90,15 @@ if (isset($message) && is_array($message)) {
         ?>
     <img src="uploaded_files/<?= $fetch_profile['image']; ?>" alt="">
     <h3><?= $fetch_profile['name']; ?></h3>
-    <span>student</span>
-    <a href="profile.php" class="btn">view profile</a>
+    <span>студент</span>
+    <a href="profile.php" class="btn">профіль</a>
         <?php
                 }else{     
         ?>
-        <h3>please login first</h3>
+        <h3>будь ласка, спершу увійдіть</h3>
     <div class="flex-btn">
-            <a href="login.php" class="option-btn">login</a>
-            <a href="register.php" class="option-btn">register</a>
+            <a href="login.php" class="option-btn">вхід</a>
+            <a href="register.php" class="option-btn">реєстрація</a>
     </div>
         <?php
         }
@@ -106,11 +106,11 @@ if (isset($message) && is_array($message)) {
     </div>
 
         <nav class="navbar">
-            <a href="home.php"><i class="fas fa-home"></i><span>home</span></a>
-            <a href="about.php"><i class="fas fa-question"></i><span>about</span></a>
-            <a href="courses.php"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
-            <a href="teachers.php"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
-            <a href="contact.php"><i class="fas fa-headset"></i><span>contact</span></a>
+            <a href="home.php"><i class="fas fa-home"></i><span>головна</span></a>
+            <a href="about.php"><i class="fas fa-question"></i><span>про нас</span></a>
+            <a href="courses.php"><i class="fas fa-graduation-cap"></i><span>курси</span></a>
+            <a href="teachers.php"><i class="fas fa-chalkboard-user"></i><span>викладачі</span></a>
+            <a href="contact.php"><i class="fas fa-headset"></i><span>контакти</span></a>
         </nav>
 
 

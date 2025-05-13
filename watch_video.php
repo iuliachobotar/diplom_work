@@ -34,15 +34,15 @@ if(isset($_POST['like_content'])){
         if($verify_like->rowCount() > 0){
             $remove_likes = $conn->prepare("DELETE FROM `likes` WHERE user_id = ? AND content_id = ?");
             $remove_likes->execute([$user_id, $like_id]);
-            $message[] = 'removed from likes!';
+            $message[] = 'вилучено з вподобаного!';
         }else{
             $add_likes = $conn->prepare("INSERT INTO `likes` (user_id, tutor_id, content_id) VALUES (?, ?, ?)");
             $add_likes->execute([$user_id, $tutor_id, $like_id]);
-            $message[] = 'added from likes!';
+            $message[] = 'додано до вподобаних!';
         }
 
     }else{
-        $message[] = 'please login first!';
+        $message[] = 'будь ласка, спочатку авторизуйтесь!';
     }
 }
 
@@ -62,11 +62,11 @@ if(isset($_POST['add_comment'])){
     $verify_comment ->execute([$get_id, $user_id, $content_tutor_id, $comment_box]);
 
     if($verify_comment->rowCount() > 0){
-        $message[] = 'comment already added!';
+        $message[] = 'коментар вже додано!';
     }else{
         $add_comment = $conn->prepare("INSERT INTO `comments` (id, content_id, user_id, tutor_id, comment) VALUES(?, ?, ?, ?, ?)");
         $add_comment->execute([$id, $get_id, $user_id, $content_tutor_id, $comment_box]);
-        $message[] = 'comment added successfully!';
+        $message[] = 'коментар додано успішно!';
     }
 }
 
@@ -80,9 +80,9 @@ if(isset($_POST['delete_comment'])){
     if($verify_comment->rowCount() > 0){
         $delete_comment = $conn->prepare("DELETE FROM `comments` WHERE id = ? LIMIT 1");
         $delete_comment->execute([$delete_id]);
-        $message[] = 'comment already successfully!';
+        $message[] = 'коментар успішно видалено!';
     }else{
-        $message[] = 'comment already deleted!';
+        $message[] = 'коментар вже видалено!';
     }
 }
 
@@ -98,11 +98,11 @@ if(isset($_POST['edit_comment'])){
     $verify_edit_comment->execute([$edit_id, $comment_box]);
 
     if($verify_edit_comment->rowCount() > 0){
-        $message[] = 'comment already added!';
+        $message[] = 'коментар вже додано!';
     }else{
         $update_comment = $conn->prepare("UPDATE `comments` SET comment = ? WHERE id = ? LIMIT 1");
         $update_comment->execute([$comment_box, $edit_id]);
-        $message[] = 'comment updated successfully!';
+        $message[] = 'коментар успішно оновлено!';
     }
 }
 
@@ -137,14 +137,14 @@ if(isset($_POST['edit_comment'])){
 
 <section class="comment-form">
 
-    <h1 class="heading">update comment</h1>
+    <h1 class="heading">редагувати</h1>
 
     <form action="" method="post">
         <input type="hidden" name="edit_id" value="<?= $fetch_update_comment['id']; ?>">
         <textarea name="comment_box" class="box" required maxlength="1000" placeholder="enter your comment" cols="30" rows="10"><?= $fetch_update_comment['comment']; ?></textarea>
         <div class="flex-btn">
-            <a href="watch_video.php?get_id=<?= $get_id; ?>" class="inline-option-btn">cancel edit</a>
-        <input type="submit" value="edit comment" name="edit_comment" class="inline-btn" >
+            <a href="watch_video.php?get_id=<?= $get_id; ?>" class="inline-option-btn">скасувати зміни</a>
+        <input type="submit" value="редагувати" name="edit_comment" class="inline-btn" >
         </div>
     </form>
 
@@ -192,11 +192,11 @@ if(isset($_POST['edit_comment'])){
         </div>
         <form action="" method="post" class="flex">
             <input type="hidden" name="content_id" value="<?= $content_id; ?>">
-            <a href="playlist.php?get_id=<?= $fetch_content['playlist_id']; ?>" class="inline-btn">view playlist</a>
+            <a href="playlist.php?get_id=<?= $fetch_content['playlist_id']; ?>" class="inline-btn">весь плейлист</a>
             <?php if ($user_likes->rowCount() > 0){ ?>
-            <button type="submit" class="inline-btn" name="like_content"><i class="fas fa-heart"></i><span>liked</span></button>
+            <button type="submit" class="inline-btn" name="like_content"><i class="fas fa-heart"></i><span>вподонано</span></button>
             <?php }else {?>
-            <button type="submit" class="inline-option-btn" name="like_content"><i class="far fa-heart"></i><span>like</span></button>
+            <button type="submit" class="inline-option-btn" name="like_content"><i class="far fa-heart"></i><span>вподабати</span></button>
             <?php } ?>
         </form>
         <p class="description"><?= $fetch_content['description']; ?></p>
@@ -206,7 +206,7 @@ if(isset($_POST['edit_comment'])){
     <?php 
         }
     }else{
-        echo '<p class="empty">no content was found!</p>';
+        echo '<p class="empty">не знайдено жодного вмісту!</p>';
     }
     ?>
 
@@ -214,18 +214,18 @@ if(isset($_POST['edit_comment'])){
 
 <section class="comment-form">
 
-    <h1 class="heading">add comment</h1>
+    <h1 class="heading">додати коментар</h1>
 
     <form action="" method="post">
-        <textarea name="comment_box" class="box" required maxlength="1000" placeholder="enter your comment" cols="30" rows="10"></textarea>
-        <input type="submit" value="add comment" name="add_comment" class="inline-btn" >
+        <textarea name="comment_box" class="box" required maxlength="1000" placeholder="впишіть коментар" cols="30" rows="10"></textarea>
+        <input type="submit" value="додати коментар" name="add_comment" class="inline-btn" >
     </form>
 
 </section>
 
 <section class="comments">
 
-        <h1 class="heading">user comments</h1>
+        <h1 class="heading">коментарі користувачів</h1>
 
         <div class="box-container">
             <?php
@@ -251,8 +251,8 @@ if(isset($_POST['edit_comment'])){
                          <?php if($fetch_comment['user_id'] == $user_id){ ?>
                     <form action="" method="post">
                         <input type="hidden" name="comment_id" value="<?= $fetch_comment['id']; ?>">
-                        <input type="submit" value="update comment" name="update_comment" class="inline-option-btn">
-                        <input type="submit" value="delete comment" name="delete_comment" class="inline-delete-btn" onclick="return confirm('delete this comment?');">
+                        <input type="submit" value="редагувати" name="update_comment" class="inline-option-btn">
+                        <input type="submit" value="видалити" name="delete_comment" class="inline-delete-btn" onclick="return confirm('delete this comment?');">
                     </form>         
                     <?php } ?>   
                 </div>
@@ -260,7 +260,7 @@ if(isset($_POST['edit_comment'])){
             <?php 
                 }
                 }else{
-                    echo'<p class="empty">no comments added yet!</p>';
+                    echo'<p class="empty">коментарів ще не додано!</p>';
                 }
             ?>
 

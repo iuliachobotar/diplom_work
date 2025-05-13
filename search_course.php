@@ -30,7 +30,7 @@ if(isset($_SESSION['user_id'])){
 
 <section class="course">
 
-    <h1 class="heading">search results</h1>
+    <h1 class="heading">результати пошуку</h1>
 
     <div class="box-container">
 
@@ -66,7 +66,7 @@ if(isset($_SESSION['user_id'])){
                     <img src="uploaded_files/<?= $fetch_course['thumb']; ?>" alt="">
                 </div>
                 <h3 class="title"><?= $fetch_course['title']; ?></h3>
-                <a href="playlist.php?get_id=<?= $course_id; ?>" class="inline-btn">view course</a>
+                <a href="playlist.php?get_id=<?= $course_id; ?>" class="inline-btn">переглянути</a>
         </div>
 
         <?php 

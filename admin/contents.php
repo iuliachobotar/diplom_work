@@ -53,7 +53,7 @@ if(isset($_POST['delete_content'])){
 
 <section class="contents">
 
-    <h1 class="heading">all contents</h1>
+    <h1 class="heading">всі контенти</h1>
 
     <div class="box-container">
 
@@ -71,18 +71,18 @@ if(isset($_POST['delete_content'])){
             </div>
             <img src="../uploaded_files/<?= $fetch_content['thumb']; ?>" alt="">
             <h3 class="title"><?= $fetch_content['title']; ?></h3>
-            <a href="view_content.php?get_id=<?= $fetch_content['id']; ?>" class="btn">view content</a>
+            <a href="view_content.php?get_id=<?= $fetch_content['id']; ?>" class="btn">переглянути</a>
                 <form action="" method="post" class="flex-btn">
                     <input type="hidden" name="content_id" value="<?= $fetch_content['id']; ?>">
-                    <a href="update_content.php?get_id=<?= $fetch_content['id']; ?>" class="option-btn">update</a>
-                    <input type="submit" value="delete" name="delete_content" class="delete-btn">
+                    <a href="update_content.php?get_id=<?= $fetch_content['id']; ?>" class="option-btn">редагувати</a>
+                    <input type="submit" value="видалити" name="delete_content" class="delete-btn">
                 </form>
     </div>
 
     <?php 
             }
         }else{
-            echo '<p class="empty">no contents added yet! <a href="add_content.php" style="margin-top: 1.5rem;" class="btn">add new content</a></p>';
+            echo '<p class="empty">контент ще не доданий! <a href="add_content.php" style="margin-top: 1.5rem;" class="btn">add new content</a></p>';
         }
     ?>
 

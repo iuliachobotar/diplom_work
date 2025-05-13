@@ -29,13 +29,13 @@ if (isset($_POST['submit'])) {
     $select_user_email->execute([$email]);
 
     if ($select_user_email->rowCount() > 0) {
-        $message[] = 'Email already taken!';
+        $message[] = 'адреса вже зайнята!';
     } else {
         if ($pass != $c_pass) {
-            $message[] = 'Passwords do not match!';
+            $message[] = 'паролі не збігаються!';
         } else {
             if ($image_size > 2000000) {
-                $message[] = 'Image size too large!';
+                $message[] = 'розмір фото занадто велике!';
             } else {
                 $insert_user = $conn->prepare("INSERT INTO `users` (id, name, email, password, image) VALUES (?, ?, ?, ?, ?)");
                 $insert_user->execute([$id, $name, $email, $c_pass, $rename]);
@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
                         header('location:home.php');
                         exit();
                     } else {
-                        $message[] = 'Something went wrong!';
+                        $message[] = 'щось не так!';
                     }
                 }
             }
@@ -82,25 +82,25 @@ if (isset($_POST['submit'])) {
 <section class="form-container">
 
 <form action="" method="post" enctype="multipart/form-data">
-    <h3>register new</h3>
+    <h3>зареєструватися</h3>
 <div class="flex">
     <div class="col">
-    <p>your name <span>*</span></p>
-    <input type="text" name="name" maxlength="50" required placeholder="enter your name" class="box">
-    <p>your email</p>
-    <input type="email" name="email" maxlength="50" required placeholder="enter your email" class="box">
+    <p>твоє ім'я <span>*</span></p>
+    <input type="text" name="name" maxlength="50" required placeholder="введи ім'я" class="box">
+    <p>твій email</p>
+    <input type="email" name="email" maxlength="50" required placeholder="введи email" class="box">
     </div>
 
     <div class="col">
-    <p>your password</p>
-    <input type="password" name="pass" maxlength="20" required placeholder="enter your password" class="box">
-    <p>confirm password</p>
-    <input type="password" name="c_pass" maxlength="20" required placeholder="confirm your password" class="box">
+    <p>твій пароль</p>
+    <input type="password" name="pass" maxlength="20" required placeholder="введи пароль" class="box">
+    <p>повтори пароль</p>
+    <input type="password" name="c_pass" maxlength="20" required placeholder="повтори пароль" class="box">
     </div>
 </div>
-<p>select pic <span>*</span></p>
+<p>обери фото <span>*</span></p>
 <input type="file" name="image" class="box" required accept="image/*">
-<input type="submit" value="register now" name="submit" class="btn">
+<input type="submit" value="зареєструватись" name="submit" class="btn">
 </form>
 
 </section>

@@ -79,14 +79,14 @@ if(isset($_POST['edit_comment'])){
 
 <section class="comment-form">
 
-    <h1 class="heading">update comment</h1>
+    <h1 class="heading">редагувати</h1>
 
     <form action="" method="post">
         <input type="hidden" name="edit_id" value="<?= $fetch_update_comment['id']; ?>">
         <textarea name="comment_box" class="box" required maxlength="1000" placeholder="enter your comment" cols="30" rows="10"><?= $fetch_update_comment['comment']; ?></textarea>
         <div class="flex-btn">
             <a href="comments.php" class="inline-option-btn">cancel edit</a>
-        <input type="submit" value="edit comment" name="edit_comment" class="inline-btn" >
+        <input type="submit" value="редагувати" name="edit_comment" class="inline-btn" >
         </div>
     </form>
 
@@ -98,7 +98,7 @@ if(isset($_POST['edit_comment'])){
 
 <section class="comments">
 
-        <h1 class="heading">your comments</h1>
+        <h1 class="heading">твої коментарі</h1>
 
         <div class="box-container">
             <?php
@@ -117,15 +117,15 @@ if(isset($_POST['edit_comment'])){
                     <p class="comment-box"><?= $fetch_comment['comment']; ?></p>
                     <form action="" method="post">
                         <input type="hidden" name="comment_id" value="<?= $comment_id; ?>">
-                        <input type="submit" value="update comment" name="update_comment" class="inline-option-btn">
-                        <input type="submit" value="delete comment" name="delete_comment" class="inline-delete-btn" onclick="return confirm('delete this comment?');">
+                        <input type="submit" value="реданувати" name="update_comment" class="inline-option-btn">
+                        <input type="submit" value="видалити" name="delete_comment" class="inline-delete-btn" onclick="return confirm('delete this comment?');">
                     </form>      
                 </div>
 
             <?php 
                 }
                 }else{
-                    echo'<p class="empty" style="padding:0;">no comments added yet!</p>';
+                    echo'<p class="empty" style="padding:0;">коментарів ще не додано!</p>';
                 }
             ?>
 

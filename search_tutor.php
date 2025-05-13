@@ -30,7 +30,7 @@ if(isset($_SESSION['user_id'])){
 
 <section class="teachers">
 
-    <h1 class="heading">expert tutors</h1>
+    <h1 class="heading">викладачі-експерти</h1>
 
     <form action="" method="post" class="tutor-search">
         <input type="text" name="search_tutor_box" placeholder="search tutors" maxlength="100" required>
@@ -74,20 +74,20 @@ if(isset($_SESSION['user_id'])){
                 <span><?= $fetch_tutor['profession']; ?></span>
             </div>
         </div>
-        <p>total videos : <span><?= $total_content; ?></span></p>
-        <p>total courses : <span><?= $total_playlists; ?></span></p>
-        <p>total likes : <span><?= $total_likes; ?></span></p>
-        <p>total comment : <span><?= $total_comments; ?></span></p>
+        <p>загально відео : <span><?= $total_content; ?></span></p>
+        <p>загально курсів : <span><?= $total_playlists; ?></span></p>
+        <p>загально вподобано : <span><?= $total_likes; ?></span></p>
+        <p>загально коментарів : <span><?= $total_comments; ?></span></p>
         <a href="tutor_profile.php?get_id=<?= $fetch_tutor['email']; ?>" class="inline-btn">view profile</a>
     </div>
 
     <?php 
         }
     }else{
-        echo '<p class="empty">result not found!</p>';
+        echo '<p class="empty">результат не знайдено!</p>';
     }
     }else{
-        echo '<p class="empty">☝️ search something! ☝️</p>';
+        echo '<p class="empty">☝️ пошукайте щось! ☝️</p>';
     }
     ?>
 

@@ -108,29 +108,29 @@ if(isset($_POST['submit'])){
 <section class="form-container">
 
 <form action="" method="post" enctype="multipart/form-data">
-    <h3>update profile</h3>
+    <h3>релагувати профіль</h3>
 <div class="flex">
     <div class="col">
-    <p>your name</p>
+    <p>твоє ім'я</p>
     <input type="text" name="name" maxlength="50" placeholder="<?= $fetch_profile['name']; ?>" class="box">
-    <p>your email</p>
+    <p>твій email</p>
     <input type="email" name="email" maxlength="50" placeholder="<?= $fetch_profile['email']; ?>" class="box">
-    <p>select pic</p>
+    <p>обери фото</p>
     <input type="file" name="image" class="box"  accept="image/*">
     </div>
 
     <div class="col">
-    <p>old password</p>
-    <input type="password" name="old_pass" maxlength="20" placeholder="enter your old password" class="box">
+    <p>старий пароль</p>
+    <input type="password" name="old_pass" maxlength="20" placeholder="напиши старий пароль" class="box">
     
-    <p>your password</p>
-    <input type="password" name="new_pass" maxlength="20" placeholder="enter your new password" class="box">
-    <p>confirm password</p>
-    <input type="password" name="c_pass" maxlength="20" placeholder="confirm your new password" class="box">
+    <p>новий пароль</p>
+    <input type="password" name="new_pass" maxlength="20" placeholder="напиши новий пароль" class="box">
+    <p>повтори новий пароль</p>
+    <input type="password" name="c_pass" maxlength="20" placeholder="повтори новий пароль" class="box">
     
 </div>
 </div>
-<input type="submit" value="update now" name="submit" class="btn" >
+<input type="submit" value="оновити профіль" name="submit" class="btn" >
 </form>
 
 </section>

@@ -30,7 +30,7 @@ $tutor_id = $_SESSION['tutor_id'];
 
 <section class="contents">
 
-    <h1 class="heading">contents</h1>
+    <h1 class="heading">контенти</h1>
 
     <div class="box-container">
 
@@ -51,21 +51,21 @@ $tutor_id = $_SESSION['tutor_id'];
             </div>
             <img src="../uploaded_files/<?= $fetch_content['thumb']; ?>" alt="">
             <h3 class="title"><?= $fetch_content['title']; ?></h3>
-            <a href="view_content.php?get_id=<?= $fetch_content['id']; ?>" class="btn">view content</a>
+            <a href="view_content.php?get_id=<?= $fetch_content['id']; ?>" class="btn">переглянути</a>
                 <form action="" method="post" class="flex-btn">
                     <input type="hidden" name="content_id" value="<?= $fetch_content['id']; ?>">
-                    <a href="update_content.php?get_id=<?= $fetch_content['id']; ?>" class="option-btn">update</a>
-                    <input type="submit" value="delete" name="delete_content" class="delete-btn">
+                    <a href="update_content.php?get_id=<?= $fetch_content['id']; ?>" class="option-btn">редагувати</a>
+                    <input type="submit" value="видалити" name="delete_content" class="delete-btn">
                 </form>
     </div>
 
     <?php 
             }
         }else{
-            echo '<p class="empty">no contents was found!';
+            echo '<p class="empty">контент не знайдено!';
         }
     }else{
-        echo '<p class="empty">search something!</p>';
+        echo '<p class="empty">шукай щось!</p>';
     }
     ?>
 
@@ -76,7 +76,7 @@ $tutor_id = $_SESSION['tutor_id'];
 
 <section class="playlists">
 
-<h1 class="heading">playlists</h1>
+<h1 class="heading">плейлисти</h1>
 
 <div class="box-container">
 
@@ -108,19 +108,19 @@ $tutor_id = $_SESSION['tutor_id'];
             <p class="description"><?= $fetch_playlist['description'];?></p>
             <form action="" method="POST" class="flex-btn">
                 <input type="hidden" name="delete_id" value="<?= $playlist_id; ?>">
-                <a href="update_playlist.php?get_id=<?= $playlist_id; ?>" class="option-btn">update</a>
-                <input type="submit" value="delete" name="delete_playlist" class="delete-btn">
+                <a href="update_playlist.php?get_id=<?= $playlist_id; ?>" class="option-btn">редагувати</a>
+                <input type="submit" value="видалити" name="delete_playlist" class="delete-btn">
             </form>
-            <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="btn">view playlist</a>
+            <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="btn">переглянути</a>
 
 </div>
 <?php
         }
     }else{
-        echo '<p class="empty">no playlists was found!</p>';
+        echo '<p class="empty">плейлистів не знайдено!</p>';
     }
     }else{
-        echo '<p class="empty">search something!</p>';
+        echo '<p class="empty">шукай щось!</p>';
     }
 ?>
 

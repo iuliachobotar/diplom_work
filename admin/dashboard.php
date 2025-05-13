@@ -54,45 +54,45 @@ if ($select_profile->rowCount() > 0) {
 
 <section class="dashboard">
 
-    <h1 class="heading">dashboard</h1>
+    <h1 class="heading">панель приладів</h1>
 
     <div class="box-container">
 
     <div class="box">
-        <h3>welcome!</h3>
+        <h3>з поверненням!</h3>
         <p><?= $fetch_profile['name']; ?></p>
-        <a href="profile.php" class="btn">view profile</a>
+        <a href="profile.php" class="btn">переглянути профіль</a>
     </div>
 
     <div class="box">
         <h3><?= $total_contents; ?></h3>
-        <p>contents uploaded</p>
-        <a href="add_content.php" class="btn">add new content</a>
+        <p>завантажений міст</p>
+        <a href="add_content.php" class="btn">створити контент</a>
     </div>
 
     <div class="box">
         <h3><?= $total_playlists; ?></h3>
-        <p>playlists uploaded</p>
-        <a href="add_playlist.php" class="btn">add new playlist</a>
+        <p>завантажено плейлистів</p>
+        <a href="add_playlist.php" class="btn">створити плейлист</a>
     </div>
 
     <div class="box">
         <h3><?= $total_likes; ?></h3>
-        <p>total likes</p>
-        <a href="contents.php" class="btn">view contents</a>
+        <p>загально вподобань</p>
+        <a href="contents.php" class="btn">переглянути</a>
     </div>
 
     <div class="box">
         <h3><?= $total_likes; ?></h3>
-        <p>total comments</p>
-        <a href="comments.php" class="btn">view comments</a>
+        <p>загально коментарів</p>
+        <a href="comments.php" class="btn">переглянути</a>
     </div>
     <div class="box">
-        <h3>quick links</h3>
-        <p>login or register</p>
+        <h3>швидкі посилання</h3>
+        <p>вхід чи реєстрація</p>
         <div class="flex-btn">
-            <a href="login.php" class="option-btn">login</a>
-            <a href="register.php" class="option-btn">register</a>
+            <a href="login.php" class="option-btn">вхід</a>
+            <a href="register.php" class="option-btn">реєстрація</a>
         </div>
     </div>
 

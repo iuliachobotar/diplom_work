@@ -32,7 +32,7 @@ if (isset($message) && is_array($message)) {
     <a href="dashboard.php" class="logo">Admin.</a>
 
     <form action="search_page.php" method="post" class="search-form">
-        <input type="text" placeholder="search here..." required maxlength="100" name="search_box">
+        <input type="text" placeholder="шукай тут..." required maxlength="100" name="search_box">
         <button type="submit" class="fas fa-search" name="search_btn"></button>
     </form>
 
@@ -53,19 +53,19 @@ if (isset($message) && is_array($message)) {
     <img src="../uploaded_files/<?= $fetch_profile['image']; ?>" alt="">
     <h3><?= $fetch_profile['name']; ?></h3>
     <span><?= $fetch_profile['profession']; ?></span>
-    <a href="profile.php" class="btn">view profile</a>
+    <a href="profile.php" class="btn">переглянути профіль</a>
     <div class="flex-btn">
-            <a href="login.php" class="option-btn">login</a>
-            <a href="register.php" class="option-btn">register</a>
+            <a href="login.php" class="option-btn">вхід</a>
+            <a href="register.php" class="option-btn">реєстрація</a>
     </div>
             <a href="../components//admin_logout.php" onclick="return confirm ('logout from this website?');" class="delete-btn">logout</a>
         <?php
                 }else{
         ?>
-        <h3>please login first</h3>
+        <h3>будь ласка, увійдіть спочатку</h3>
     <div class="flex-btn">
-            <a href="login.php" class="option-btn">login</a>
-            <a href="register.php" class="option-btn">register</a>
+            <a href="login.php" class="option-btn">вхід</a>
+            <a href="register.php" class="option-btn">реєстрація</a>
     </div>
         <?php
         }
@@ -91,14 +91,14 @@ if (isset($message) && is_array($message)) {
     <img src="../uploaded_files/<?= $fetch_profile['image']; ?>" alt="">
     <h3><?= $fetch_profile['name']; ?></h3>
     <span><?= $fetch_profile['profession']; ?></span>
-    <a href="profile.php" class="btn">view profile</a>
+    <a href="profile.php" class="btn">переглянути профіль</a>
         <?php
                 }else{     
         ?>
-        <h3>please login first</h3>
+        <h3>будь ласка, увійдіть спочатку</h3>
     <div class="flex-btn">
-            <a href="login.php" class="option-btn">login</a>
-            <a href="register.php" class="option-btn">register</a>
+            <a href="login.php" class="option-btn">вхід</a>
+            <a href="register.php" class="option-btn">реєстрація</a>
     </div>
         <?php
         }
@@ -106,11 +106,11 @@ if (isset($message) && is_array($message)) {
     </div>
 
         <nav class="navbar">
-            <a href="dashboard.php"><i class="fas fa-home"></i><span>home</span></a>
-            <a href="playlists.php"><i class="fas fa-bars-staggered"></i><span>playlists</span></a>
-            <a href="contents.php"><i class="fas fa-graduation-cap"></i><span>contents</span></a>
-            <a href="comments.php"><i class="fas fa-comment"></i><span>comments</span></a>
-            <a href="../components//admin_logout.php" onclick="return confirm ('logout from this website?');"><i class="fas fa-right-from-bracket"></i><span>logout</span></a>
+            <a href="dashboard.php"><i class="fas fa-home"></i><span>головна</span></a>
+            <a href="playlists.php"><i class="fas fa-bars-staggered"></i><span>плейлисти</span></a>
+            <a href="contents.php"><i class="fas fa-graduation-cap"></i><span>контенти</span></a>
+            <a href="comments.php"><i class="fas fa-comment"></i><span>коментарі</span></a>
+            <a href="../components//admin_logout.php" onclick="return confirm ('logout from this website?');"><i class="fas fa-right-from-bracket"></i><span>вийти</span></a>
         </nav>
 
 

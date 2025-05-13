@@ -92,43 +92,43 @@ if(isset($message)){
 <section class="form-container">
 
 <form action="" method="post" enctype="multipart/form-data">
-    <h3>register new</h3>
+    <h3>реєстрація</h3>
 <div class="flex">
     <div class="col">
-    <p>your name <span>*</span></p>
+    <p>твоє ім'я <span>*</span></p>
     <input type="text" name="name" maxlength="50" required placeholder="enter your name" class="box">
-    <p>your profession <span>*</span></p>
+    <p>твоя професія <span>*</span></p>
     <select name="profession" class="box">
-        <option value="" disabled selected>-- /select your profession</option>
-        <option value="developer">developer</option>
-        <option value="designer">designer</option>
-        <option value="musician">musician</option>
-        <option value="biologist">biologist</option>
-        <option value="artist">artist</option>
-        <option value="teacher">teacher</option>
-        <option value="engineer">engineer</option>
-        <option value="lawyer">lawyer</option>
-        <option value="accountant">accountant</option>
-        <option value="doctor">doctor</option>
-        <option value="journalist">journalist</option>
-        <option value="photographer">photographer</option>
-        <option value="student">student</option>
+        <option value="" disabled selected>-- /оберіть професію</option>
+        <option value="developer">розробник</option>
+        <option value="designer">дизайнер</option>
+        <option value="musician">музикант</option>
+        <option value="biologist">біолог</option>
+        <option value="artist">художник</option>
+        <option value="teacher">вчитель</option>
+        <option value="engineer">інженер</option>
+        <option value="lawyer">адвокат</option>
+        <option value="accountant">бухгалтер</option>
+        <option value="doctor">лікар</option>
+        <option value="journalist">журналіст</option>
+        <option value="photographer">фотограф</option>
+        <option value="student">студент</option>
     </select>
-    <p>your email</p>
-    <input type="email" name="email" maxlength="50" required placeholder="enter your email" class="box">
+    <p>твій email</p>
+    <input type="email" name="email" maxlength="50" required placeholder="введи email" class="box">
     </div>
 
     <div class="col">
-    <p>your password</p>
-    <input type="password" name="pass" maxlength="20" required placeholder="enter your password" class="box">
-    <p>confirm password</p>
-    <input type="password" name="c_pass" maxlength="20" required placeholder="confirm your password" class="box">
-    <p>select pic <span>*</span></p>
+    <p>твій пароль</p>
+    <input type="password" name="pass" maxlength="20" required placeholder="введи пароль" class="box">
+    <p>повтори пароль</p>
+    <input type="password" name="c_pass" maxlength="20" required placeholder="повтори пароль" class="box">
+    <p>обери фото <span>*</span></p>
     <input type="file" name="image" class="box" required accept="image/*">
     </div>
 </div>
-<input type="submit" value="register now" name="submit" class="btn" >
-<p class="link">already have an account? <a href="login.php">login now</a></p>
+<input type="submit" value="зареєструватись" name="submit" class="btn" >
+<p class="link">вже маєш акаунт? <a href="login.php">увійти</a></p>
 
 </form>
 

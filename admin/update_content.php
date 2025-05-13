@@ -47,7 +47,7 @@ if (isset($_POST['update'])) {
     
     if (!empty($thumb)) {
         if ($thumb_size > 2000000) {
-            $message[] = 'image size is too large!';
+            $message[] = 'розмір фото занадто великий!';
         } else {
             $update_thumb = $conn->prepare("UPDATE `content` SET thumb = ? WHERE id = ? LIMIT 1");
             $update_thumb->execute([$rename_thumb, $get_id]);
@@ -81,7 +81,7 @@ if (isset($_POST['update'])) {
         }
     }
 
-    $message[] = 'content updated!';
+    $message[] = 'урок оновлено!';
 }
 
 if(isset($_POST['delete_content'])){
@@ -101,9 +101,9 @@ if(isset($_POST['delete_content'])){
         $delete_likes->execute([$delete_id]);
         $delete_content = $conn->prepare("DELETE FROM `content` WHERE id = ? LIMIT 1");
         $delete_content->execute([$delete_id]);
-        $message[] = 'content deleted successfully!';
+        $message[] = 'урок успішно видалено!';
     }else{
-        $message[] = 'content already deleted!';
+        $message[] = 'урок вже видалений!';
     }
 }
 
@@ -126,7 +126,7 @@ if(isset($_POST['delete_content'])){
 
 <section class="crud-form">
 
-    <h1 class="heading">update content</h1>
+    <h1 class="heading">редагування контенту</h1>
 
     <?php
     // Замість вибору всього контенту, вибираємо тільки той, що має id, передане в URL
@@ -142,20 +142,20 @@ if(isset($_POST['delete_content'])){
         <input type="hidden" name="old_video" value="<?= $fetch_content['video']; ?>">
         <input type="hidden" name="old_thumb" value="<?= $fetch_content['thumb']; ?>">
 
-        <p>content status </p>
+        <p>статус контенту </p>
         <select name="status" required class="box">
-            <option value="active" <?= $fetch_content['status'] == 'active' ? 'selected' : ''; ?>>active</option>
-            <option value="deactive" <?= $fetch_content['status'] == 'deactive' ? 'selected' : ''; ?>>deactive</option>
+            <option value="active" <?= $fetch_content['status'] == 'active' ? 'selected' : ''; ?>>активний</option>
+            <option value="deactive" <?= $fetch_content['status'] == 'deactive' ? 'selected' : ''; ?>>неактивний</option>
         </select>
 
-        <p>content title </p>
-        <input type="text" class="box" name="title" maxlength="100" placeholder="enter content title" value="<?= $fetch_content['title']; ?>">
+        <p>заголовок контенту</p>
+        <input type="text" class="box" name="title" maxlength="100" placeholder="введіть заголовок" value="<?= $fetch_content['title']; ?>">
 
-        <p>content description </p>
-        <textarea name="description" class="box" cols="30" required placeholder="enter content description" maxlength="1000" rows="10"><?= $fetch_content['description']; ?></textarea>
+        <p>опис контенту</p>
+        <textarea name="description" class="box" cols="30" required placeholder="введіть опис контенту" maxlength="1000" rows="10"><?= $fetch_content['description']; ?></textarea>
 
         <select name="playlist_id" class="box">
-            <option value="<?= $fetch_content['playlist_id']; ?>" selected>--select playlist</option>
+            <option value="<?= $fetch_content['playlist_id']; ?>" selected>--оберіть плейлист</option>
             <?php 
             $select_playlist = $conn->prepare("SELECT * FROM `playlist` WHERE tutor_id = ?");
             $select_playlist->execute([$tutor_id]);
@@ -166,23 +166,23 @@ if(isset($_POST['delete_content'])){
             <?php 
                 }
             } else {
-                echo '<option value="" disabled>no playlist created yet!</option>';
+                echo '<option value="" disabled>плейлист ще не створено!</option>';
             }
             ?>
         </select>
 
-        <p>update thumbnail </p>
+        <p>редагування обкладенки </p>
         <img src="../uploaded_files/<?= $fetch_content['thumb']; ?>" alt="thumbnail">
         <input type="file" name="thumb" accept="image/*" class="box">
 
-        <p>update video </p>
+        <p>редагування відео </p>
         <video src="../uploaded_files/<?= $fetch_content['video']; ?>" class="media" controls></video>
         <input type="file" name="video" accept="video/*" class="box">
 
-        <input type="submit" value="update content" name="update" class="btn">
+        <input type="submit" value="редагувати" name="update" class="btn">
         <div class="flex-btn">
-            <a href="view_content.php?get_id=<?= $get_id; ?>" class="option-btn">view content</a>
-            <input type="submit" value="delete content" name="delete_content" class="delete-btn">
+            <a href="view_content.php?get_id=<?= $get_id; ?>" class="option-btn">переглянути урок</a>
+            <input type="submit" value="видалити урок" name="delete_content" class="delete-btn">
         </div>
     </form>
     <?php

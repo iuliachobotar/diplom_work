@@ -45,7 +45,7 @@ $total_comments = $count_comments->rowCount();
 <?php include '../components/admin_header.php'; ?>
 
 <section class="profile">
-    <h1 class="heading">profile details</h1>
+    <h1 class="heading">деталі профілю</h1>
 
     <div class="details">
     
@@ -53,7 +53,7 @@ $total_comments = $count_comments->rowCount();
         <img src="../uploaded_files/<?= $fetch_profile['image']; ?>" alt="">
         <h3><?= $fetch_profile['name']; ?></h3>
         <span><?= $fetch_profile['profession'] ?></span>
-        <a href="update.php" class="inline-btn">update profile</a>
+        <a href="update.php" class="inline-btn">редагувати профіль</a>
 
     </div>
 
@@ -61,26 +61,26 @@ $total_comments = $count_comments->rowCount();
 
     <div class="box">
         <h3><?= $total_contents ?></h3>
-        <p>total contents</p>
-        <a href="contents.php" class="btn">view contents</a>
+        <p>загально контену</p>
+        <a href="contents.php" class="btn">переглянути</a>
     </div>
 
     <div class="box">
         <h3><?= $total_playlists ?></h3>
-        <p>total playlists</p>
-        <a href="playlists.php" class="btn">view playlists</a>
+        <p>загально плейлистів</p>
+        <a href="playlists.php" class="btn">переглянути</a>
     </div>
 
     <div class="box">
         <h3><?= $total_likes ?></h3>
-        <p>total likes</p>
-        <a href="contents.php" class="btn">view contents</a>
+        <p>загально вподобано</p>
+        <a href="contents.php" class="btn">переглянути</a>
     </div>
 
     <div class="box">
         <h3><?= $total_comments?></h3>
-        <p>total comments</p>
-        <a href="comments.php" class="btn">view comments</a>
+        <p>загально коментарів</p>
+        <a href="comments.php" class="btn">переглянути</a>
     </div>
 
     </div>

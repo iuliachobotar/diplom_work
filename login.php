@@ -53,14 +53,14 @@ if(isset($_POST['submit'])){
 <section class="form-container">
 
 <form action="" class="login" method="post" enctype="multipart/form-data">
-    <h3>welcome back!</h3>
-    <p>your email</p>
-    <input type="email" name="email" maxlength="50" required placeholder="enter your email" class="box">
+    <h3>З поверненням!</h3>
+    <p>твій email</p>
+    <input type="email" name="email" maxlength="50" required placeholder="введи email" class="box">
     </div>
-    <p>your password</p>
-    <input type="password" name="pass" maxlength="20" required placeholder="enter your password" class="box">
+    <p>твій пароль</p>
+    <input type="password" name="pass" maxlength="20" required placeholder="введи password" class="box">
 
-<input type="submit" value="login now" name="submit" class="btn" >
+<input type="submit" value="увійти" name="submit" class="btn" >
 
 </form>
 

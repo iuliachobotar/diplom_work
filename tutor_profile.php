@@ -37,7 +37,7 @@ if(isset($_GET['get_id'])){
 
 <section class="tutor-profile">
 
-    <h1 class="heading">tutor profile</h1>
+    <h1 class="heading">профіль викладача</h1>
 
     <?php 
         $select_tutors = $conn->prepare("SELECT * FROM `tutor` WHERE email = ? LIMIT 1");
@@ -71,17 +71,17 @@ if(isset($_GET['get_id'])){
             <p class="email"><?= $fetch_tutor['email']; ?></p>
         </div>
         <div class="box-container">
-            <p>total playlists : <span><?= $total_playlists; ?></span></p>
-            <p>total contents : <span><?= $total_content; ?></span></p>
-            <p>total comments : <span><?= $total_comments; ?></span></p>
-            <p>total likes : <span><?= $total_likes; ?></span></p>
+            <p>загалом плейлистів : <span><?= $total_playlists; ?></span></p>
+            <p>загалом коментарів : <span><?= $total_content; ?></span></p>
+            <p>загалом коментарів : <span><?= $total_comments; ?></span></p>
+            <p>загалом вподобаних : <span><?= $total_likes; ?></span></p>
 
         </div>
     </div>
     <?php 
         }
     }else{
-        echo '<p class="empty">tutors was not found!</p>';
+        echo '<p class="empty">викладачів не знайдено!</p>';
     }
     ?>
 </section>
@@ -89,7 +89,7 @@ if(isset($_GET['get_id'])){
 
 <section class="course">
 
-    <h1 class="heading">tutor's courses</h1>
+    <h1 class="heading">курси викладача</h1>
 
     <div class="box-container">
 
@@ -126,13 +126,13 @@ if(isset($_GET['get_id'])){
                     <img src="uploaded_files/<?= $fetch_course['thumb']; ?>" alt="">
                 </div>
                 <h3 class="title"><?= $fetch_course['title']; ?></h3>
-                <a href="playlist.php?get_id=<?= $course_id; ?>" class="inline-btn">view course</a>
+                <a href="playlist.php?get_id=<?= $course_id; ?>" class="inline-btn">переглянути</a>
         </div>
 
         <?php 
             }
         }else{
-            echo '<p class="empty">no courses added yet!</p>';
+            echo '<p class="empty">курси ще не додані!</p>';
         }
         ?>
 

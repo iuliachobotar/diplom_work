@@ -18,7 +18,7 @@ if(isset($_SESSION['user_id'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Courses</title>
+    <title>Усі курси</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
@@ -30,7 +30,7 @@ if(isset($_SESSION['user_id'])){
 
 <section class="course">
 
-    <h1 class="heading">all courses</h1>
+    <h1 class="heading">Усі курси</h1>
 
     <div class="box-container">
 
@@ -63,13 +63,13 @@ if(isset($_SESSION['user_id'])){
                     <img src="uploaded_files/<?= $fetch_course['thumb']; ?>" alt="">
                 </div>
                 <h3 class="title"><?= $fetch_course['title']; ?></h3>
-                <a href="playlist.php?get_id=<?= $course_id; ?>" class="inline-btn">view course</a>
+                <a href="playlist.php?get_id=<?= $course_id; ?>" class="inline-btn">переглянути</a>
         </div>
 
         <?php 
             }
         }else{
-            echo '<p class="empty">no courses added yet!</p>';
+            echo '<p class="empty">курси ще не додані!</p>';
         }
         ?>
 

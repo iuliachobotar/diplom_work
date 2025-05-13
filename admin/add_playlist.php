@@ -40,12 +40,12 @@ if (isset($_POST['submit'])) {
     $verify_playlist->execute([ $tutor_id, $title, $description]);
 
     if ($verify_playlist->rowCount() > 0) {
-        $message[] = 'Playlist already created!';
+        $message[] = 'плейлист вже створено!';
     } else {
         $add_playlist = $conn->prepare("INSERT INTO `playlist` (id, tutor_id, title, description, thumb, status) VALUES (?, ?, ?, ?, ?, ?)");
         $add_playlist->execute([$id, $tutor_id, $title, $description, $rename, $status]);
         move_uploaded_file($thumb_tmp_name, $thumb_folder);
-        $message[] = 'New playlist created!';
+        $message[] = 'створено новий плейлист!';
     }
 }
 ?>
@@ -68,21 +68,21 @@ if (isset($_POST['submit'])) {
 
 <section class="crud-form">
 
-<h1 class="heading">add playlist</h1>
+<h1 class="heading">додати плейлист</h1>
 
 <form action="" method="POST" enctype="multipart/form-data">
-<p>playlist status <span>*</span></p>
+<p>статус плейлиста <span>*</span></p>
 <select name="status" required class="box">
-    <option value="active">active</option>
-    <option value="deactive">deactive</option>
+    <option value="active">активний</option>
+    <option value="deactive">неактивний</option>
 </select>
-    <p>playlist title <span>*</span></p>
-    <input type="text" class="box" name="title" maxlength="100" placeholder="enter playlist title">
-    <p>playlist description <span>*</span></p>
-    <textarea name="description" class="box" cols="30" required placeholder="enter playlist description" maxlength="1000" rows="10" ></textarea>
-    <p>playlist thumbnail <span>*</span></p>
+    <p>заголовок <span>*</span></p>
+    <input type="text" class="box" name="title" maxlength="100" placeholder="веди заголовок">
+    <p>опис плейлиста <span>*</span></p>
+    <textarea name="description" class="box" cols="30" required placeholder="введи опис плейлиста" maxlength="1000" rows="10" ></textarea>
+    <p>обкладинка плейлиста <span>*</span></p>
     <input type="file" name="thumb" required accept="image/*" class="box">
-    <input type="submit" value="create playlist" name="submit" class="btn">
+    <input type="submit" value="створити" name="submit" class="btn">
 </form>
 
 </section>

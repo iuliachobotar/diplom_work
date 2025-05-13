@@ -45,7 +45,7 @@ if(isset($_POST['submit'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Зв'яжіться з нами</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
@@ -64,12 +64,12 @@ if(isset($_POST['submit'])){
         </div>
 
         <form action="" method="post">
-            <h3>get in touch</h3>
-            <input type="text" class="box" required maxlength="50" name="name" placeholder="please enter your name">
-            <input type="email" class="box" required maxlength="50" name="email" placeholder="please enter your email">
-            <input type="number" class="box" required maxlength="10" name="number" placeholder="please enter your number">
-            <textarea name="msg" class="box" required maxlength="1000" placeholder="enter your message" cols="30" rows="10"></textarea>
-            <input type="submit" value="send message" class="inline-btn" name="submit">
+            <h3>Зв'яжіться із нами</h3>
+            <input type="text" class="box" required maxlength="50" name="name" placeholder="впишіть ім'я">
+            <input type="email" class="box" required maxlength="50" name="email" placeholder="впишіть email">
+            <input type="number" class="box" required maxlength="10" name="number" placeholder="впишіть номер">
+            <textarea name="msg" class="box" required maxlength="1000" placeholder="впишіть повідомлення" cols="30" rows="10"></textarea>
+            <input type="submit" value="надіслати" class="inline-btn" name="submit">
 
 
         </form>
@@ -80,21 +80,21 @@ if(isset($_POST['submit'])){
 
     <div class="box">
         <i class="fas fa-phone"></i>
-        <h3>phone number</h3>
+        <h3>номер телефону</h3>
         <a href="tel:1234567890">123-456-7890</a>
         <a href="tel:1112223333">111-222-3333</a>
     </div>
 
     <div class="box">
         <i class="fas fa-envelope"></i>
-        <h3>email address</h3>
+        <h3>email</h3>
         <a href="mailto:chobotarlyly@gmail.com">chobotarlyly@gmail.com</a>
         <a href="mailto:chobotar_ly@gmail.com">chobotar_ly@gmail.com</a>
     </div>
 
     <div class="box">
         <i class="fas fa-map-marker-alt"></i>
-        <h3>office address</h3>
+        <h3>адреса</h3>
         <a href="#">56 Potebni Street, Lutsk, Volyn region</a>
     </div>
 

@@ -182,7 +182,7 @@ section {
 .flex-btn {
     display: flex;
     gap: 1rem;
-}
+    }
 
 .header {
     position: sticky;

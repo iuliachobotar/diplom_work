@@ -18,7 +18,7 @@ if(isset($_SESSION['user_id'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teachers</title>
+    <title>Викладачі</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
@@ -30,19 +30,19 @@ if(isset($_SESSION['user_id'])){
 
 <section class="teachers">
 
-    <h1 class="heading">expert tutors</h1>
+    <h1 class="heading">викладачі-експерти</h1>
 
     <form action="search_tutor.php" method="post" class="tutor-search">
-        <input type="text" name="search_tutor_box" placeholder="search tutors" maxlength="100" required>
+        <input type="text" name="search_tutor_box" placeholder="знайти викладача..." maxlength="100" required>
         <button type="submit" name="search_tutor_btn" class="fas fa-search"></button>
     </form>
 
     <div class="box-container">
 
     <div class="box offer">
-        <h3>become a tutor</h3>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, illo!</p>
-        <a href="admin/register.php" class="inline-btn">get started</a>
+        <h3>стати викладачем</h3>
+        <p>Приєднуйтесь до нашої освітньої платформи та діліться знаннями з тисячами студентів.</p>
+        <a href="admin/register.php" class="inline-btn">розпочати</a>
     </div>
 
     <?php 
@@ -81,7 +81,7 @@ if(isset($_SESSION['user_id'])){
         <p>total courses : <span><?= $total_playlists; ?></span></p>
         <p>total likes : <span><?= $total_likes; ?></span></p>
         <p>total comment : <span><?= $total_comments; ?></span></p>
-        <a href="tutor_profile.php?get_id=<?= $fetch_tutor['email']; ?>" class="inline-btn">view profile</a>
+        <a href="tutor_profile.php?get_id=<?= $fetch_tutor['email']; ?>" class="inline-btn">профіль</a>
     </div>
 
     <?php 

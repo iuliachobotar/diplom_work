@@ -36,9 +36,9 @@ if(isset($_SESSION['user_id'])){
         </div>
 
         <div class="content">
-            <h3>why choose us?</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus asperiores dolorum ad praesentium, reiciendis sapiente voluptas assumenda, atque dolore quia sit adipisci laborum excepturi distinctio ipsum facilis quaerat eos a.</p>
-            <a href="courses.php" class="inline-btn">our courses</a>
+            <h3>чому обирають нас?</h3>
+            <p>Понад тисяча онлайн-курсів, десятки тисяч задоволених студентів і тисячі досвідчених викладачів — усе це, щоб ви могли зручно навчатися у своєму темпі.</p>
+            <a href="courses.php" class="inline-btn">наші курси</a>
         </div>
     </div>
 
@@ -48,7 +48,7 @@ if(isset($_SESSION['user_id'])){
         <i class="fas fa-graduation-cap"></i>
         <div>
             <h3>+1k</h3>
-            <span>online courses</span>
+            <span>онлайн курсів</span>
         </div>
     </div>
 
@@ -56,7 +56,7 @@ if(isset($_SESSION['user_id'])){
         <i class="fas fa-user-graduate"></i>
         <div>
             <h3>+25k</h3>
-            <span>brilliants students</span>
+            <span>студентів-відмінників</span>
         </div>
     </div>
 
@@ -64,7 +64,7 @@ if(isset($_SESSION['user_id'])){
         <i class="fas fa-chalkboard-user"></i>
         <div>
             <h3>+5k</h3>
-            <span>expert teachers</span>
+            <span>викладачів-експертів</span>
         </div>
     </div>
 
@@ -72,7 +72,7 @@ if(isset($_SESSION['user_id'])){
         <i class="fas fa-briefcase"></i>
         <div>
             <h3>100%</h3>
-            <span>job placement</span>
+            <span>працевлаштування</span>
         </div>
     </div>
 
@@ -82,7 +82,7 @@ if(isset($_SESSION['user_id'])){
 
 <section class="reviews">
 
-    <h1 class="heading">student's reviews</h1>
+    <h1 class="heading">відгуки студентів</h1>
 
     <div class="box-container">
 
@@ -100,7 +100,7 @@ if(isset($_SESSION['user_id'])){
                </div>
             </div>
          </div>
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo fugiat, quaerat voluptate odio consectetur assumenda fugit maxime unde at ex?</p>
+         <p>Навчання на платформі перевершило очікування! Уроки структуровані, викладачі завжди на зв’язку!</p>
       </div>
 
       <div class="box">
@@ -117,7 +117,7 @@ if(isset($_SESSION['user_id'])){
                </div>
             </div>
          </div>
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo fugiat, quaerat voluptate odio consectetur assumenda fugit maxime unde at ex?</p>
+         <p>Мені сподобалося, що можна вчитися у власному темпі. Відеоуроки якісні, з практичними прикладами, і нічого зайвого.</p>
       </div>
 
       <div class="box">
@@ -134,7 +134,7 @@ if(isset($_SESSION['user_id'])){
                </div>
             </div>
          </div>
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo fugiat, quaerat voluptate odio consectetur assumenda fugit maxime unde at ex?</p>
+         <p>Кожен викладач — справжній профі. Було цікаво слухати, не хотілося перемотувати! Рідко де зустрінеш таку подачу матеріалу.</p>
       </div>
 
       <div class="box">
@@ -151,7 +151,7 @@ if(isset($_SESSION['user_id'])){
                </div>
             </div>
          </div>
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo fugiat, quaerat voluptate odio consectetur assumenda fugit maxime unde at ex?</p>
+         <p>Я пройшов уже кілька курсів і щоразу вражений якістю. Навіть складні теми пояснюються на прикладах з реального життя.</p>
       </div>
 
       <div class="box">
@@ -168,7 +168,7 @@ if(isset($_SESSION['user_id'])){
                </div>
             </div>
          </div>
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo fugiat, quaerat voluptate odio consectetur assumenda fugit maxime unde at ex?</p>
+         <p>Я довго шукав курс, який не просто дає знання, а й допомагає зрозуміти, як їх застосовувати. Тут усе побудовано логічно та послідовно — вчуся із задоволенням.</p>
       </div>
 
       <div class="box">
@@ -185,7 +185,7 @@ if(isset($_SESSION['user_id'])){
                </div>
             </div>
          </div>
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo fugiat, quaerat voluptate odio consectetur assumenda fugit maxime unde at ex?</p>
+         <p>Особливо ціную підтримку з боку викладачів — завжди отримую швидкі відповіді на запитання, корисні поради та детальні пояснення.</p>
       </div>
    </div>
 

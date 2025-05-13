@@ -44,7 +44,7 @@ if(isset($_POST['delete_comment'])){
 
 <section class="comments">
 
-        <h1 class="heading">user comments</h1>
+        <h1 class="heading">коментарі користувачів</h1>
 
         <div class="box-container">
             <?php
@@ -64,7 +64,7 @@ if(isset($_POST['delete_comment'])){
             ?> 
                 <div class="box">
                     <div class="comment-content"><p><?= $fetch_content['title']; ?></p>
-                        <a href="view_content.php?get_id=<?=$fetch_content['id']; ?>">view content</a>
+                        <a href="view_content.php?get_id=<?=$fetch_content['id']; ?>">переглянути контент</a>
                 </div>
                     <div class="user">
                         <img src="../uploaded_files/<?= $fetch_commentor['image']; ?>" alt="">
@@ -76,7 +76,7 @@ if(isset($_POST['delete_comment'])){
                     <p class="comment-box"><?= $fetch_comment['comment']; ?></p>
                     <form action="" method="post">
                         <input type="hidden" name="comment_id" value="<?= $fetch_comment['id']; ?>">
-                        <input type="submit" value="delete comment" name="delete_comment" class="inline-delete-btn" onclick="return confirm('delete this comment?');">
+                        <input type="submit" value="видалити коментар" name="delete_comment" class="inline-delete-btn" onclick="return confirm('delete this comment?');">
                     </form>            
                 </div>
 

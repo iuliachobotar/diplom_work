@@ -26,7 +26,7 @@ if(isset($_POST['update'])){
     
     $update_playlist = $conn->prepare("UPDATE `playlist` SET title = ?, description = ?, status = ? WHERE id = ?");
     $update_playlist->execute([$title, $description, $status, $get_id]);
-    $message[] = 'playlist updated!';
+    $message[] = 'плейлист оновлено!';
     
     $old_thumb = filter_var($_POST['old_thumb'], FILTER_SANITIZE_STRING);
     $thumb = $_FILES['thumb']['name'];
@@ -40,7 +40,7 @@ if(isset($_POST['update'])){
         $thumb_folder = '../uploaded_files/' .$rename_thumb;
         
         if($thumb_size > 2000000){
-            $message[] = 'image size is too large!';
+            $message[] = 'фото занадто велике!';
         }else{
             $update_thumb = $conn->prepare("UPDATE `playlist` SET thumb = ? WHERE id = ?");
             $update_thumb->execute([$rename_thumb, $get_id]);
@@ -71,7 +71,7 @@ if(isset($_POST['delete_playlist'])){
         header('location:playlists.php');
         exit();
     }else{
-        $message[] = 'playlist was already deleted!';
+        $message[] = 'плейлист було видалено!';
     }
 }
 
@@ -97,7 +97,7 @@ if(isset($_POST['delete_playlist'])){
 
 <section class="crud-form">
 
-<h1 class="heading">update playlist</h1>
+<h1 class="heading">редагування плейлиста</h1>
 
 <?php 
     $select_playlist = $conn->prepare("SELECT * FROM `playlist` WHERE id = ?");
@@ -110,23 +110,23 @@ if(isset($_POST['delete_playlist'])){
 
 <form action="" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="old_thumb" value="<?= $fetch_playlist['thumb']; ?>">
-<p>update status</p>
+<p>редагувати статус</p>
 <select name="status" class="box" required>
     <option value="<?= $fetch_playlist['status']; ?>" selected><?= $fetch_playlist['status']; ?></option>
-    <option value="active">active</option>
-    <option value="deactive">deactive</option>
+    <option value="active">активний</option>
+    <option value="deactive">неактивний</option>
 </select>
-    <p>update title </p>
-    <input type="text" class="box" required name="title" maxlength="100" placeholder="enter playlist title" value="<?= $fetch_playlist['title']; ?>">
-    <p>update description</p>
-    <textarea name="description" class="box" required cols="30" required placeholder="enter playlist description" maxlength="1000" rows="10" ><?= $fetch_playlist['description']; ?></textarea>
-    <p>update thumbnail</p>
+    <p>редагувати заголовок </p>
+    <input type="text" class="box" required name="title" maxlength="100" placeholder="введіть заголовок" value="<?= $fetch_playlist['title']; ?>">
+    <p>оберіть опис</p>
+    <textarea name="description" class="box" required cols="30" required placeholder="введіть опис плейлиста" maxlength="1000" rows="10" ><?= $fetch_playlist['description']; ?></textarea>
+    <p>оберіть обкладинку</p>
     <img src="../uploaded_files/<?= $fetch_playlist['thumb']; ?>" alt="">
     <input type="file" name="thumb" accept="image/*" class="box">
-    <input type="submit" value="update playlist" name="update" class="btn">
+    <input type="submit" value="редагувати" name="update" class="btn">
     <div class="flex-btn">
-        <input type="submit" value="delete playlist" name="delete_playlist" class="delete-btn">
-        <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="option-btn">view playlist</a>
+        <input type="submit" value="видалити плейлист" name="delete_playlist" class="delete-btn">
+        <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="option-btn">переглянути </a>
     </div>
 
 </form>

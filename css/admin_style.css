@@ -385,7 +385,7 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 1.5rem;
     justify-content: center;
-    align-items: flex-start;
+   /* align-items: flex-start;*/
 }
 
 .dashboard .box-container .box{

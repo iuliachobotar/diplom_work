@@ -22,24 +22,24 @@ if(isset($_POST['submit'])){
     if(!empty($name)){
         $update_name = $conn->prepare("UPDATE `tutor` SET name = ? WHERE id = ?");
         $update_name->execute([$name, $tutor_id]);
-        $message[] = 'name updated succrssfully!';
+        $message[] = 'ім*я успішно оновлено!';
     }
 
     if(!empty($profession)){
         $update_profession = $conn->prepare("UPDATE `tutor` SET profession = ? WHERE id = ?");
         $update_profession->execute([$profession, $tutor_id]);
-        $message[] = 'profession updated succrssfully!';
+        $message[] = 'професія успішно оновлена!';
     }
 
     if(!empty($email)){
         $select_tutor_email = $conn->prepare("SELECT * FROM `tutor` WHERE email = ?");
         $select_tutor_email->execute([$email]);
         if($select_tutor_email->rowCount() > 0){
-            $message[] = 'email already taken!';
+            $message[] = 'адреса вже використовується!';
         }else{
         $update_email = $conn->prepare("UPDATE `tutor` SET email = ? WHERE id = ?");
         $update_email->execute([$email, $tutor_id]);
-        $message[] = 'email updated succrssfully!';
+        $message[] = 'електронну пошту успішно оновлено!';
         }
 
         
@@ -56,7 +56,7 @@ if(isset($_POST['submit'])){
 
     if(!empty($image)){
         if($image_size > 2000000){
-            $message[] = 'image size is too large!';
+            $message[] = 'фото дуже велике!';
         }else{
             $update_image = $conn->prepare("UPDATE `tutor` SET image = ? WHERE id = ?");
             $update_image->execute([$rename, $tutor_id]);
@@ -64,7 +64,7 @@ if(isset($_POST['submit'])){
             if($prev_image != '' AND $prev_image != $rename){
                 unlink('../uploaded_files/'.$prev_image);
             }
-            $message[] = 'image updated succrssfully!';
+            $message[] = 'фото успішно оновлено!';
         }
     }
 
@@ -76,16 +76,16 @@ if(isset($_POST['submit'])){
 
     if($old_pass != $empty_pass){
         if($old_pass != $prev_pass){
-            $message[] = 'old password not matched!';
+            $message[] = 'старий пароль не збігається!';
         }elseif($new_pass != $c_pass){
-            $message[] = 'confirm password not matched!';
+            $message[] = 'пароль не збігається!';
         }else{
             if($new_pass != $empty_pass){
                 $update_pass = $conn->prepare("UPDATE `tutor` SET password = ? WHERE id = ?");
                 $update_pass->execute([$c_pass, $tutor_id]);
-                $message[] = 'password updated succrssfully!';
+                $message[] = 'пароль успішно оновлено!';
             }else{
-                $message[] = 'please enter new password';
+                $message[] = 'будь ласка, введіть новий пароль';
             }
         }
     }
@@ -114,46 +114,46 @@ if(isset($_POST['submit'])){
 <section class="form-container">
 
 <form action="" method="post" enctype="multipart/form-data">
-    <h3>update profile</h3>
+    <h3>редагувати профіль</h3>
 <div class="flex">
     <div class="col">
-    <p>your name</p>
+    <p>твоє ім'я</p>
     <input type="text" name="name" maxlength="50" placeholder="<?= $fetch_profile['name']; ?>" class="box">
-    <p>your profession </p>
+    <p>твоя професія</p>
     <select name="profession" class="box">
         <option value="" selected><?= $fetch_profile['profession']; ?></option>
-        <option value="developer">developer</option>
-        <option value="designer">designer</option>
-        <option value="musician">musician</option>
-        <option value="biologist">biologist</option>
-        <option value="artist">artist</option>
-        <option value="teacher">teacher</option>
-        <option value="engineer">engineer</option>
-        <option value="lawyer">lawyer</option>
-        <option value="accountant">accountant</option>
-        <option value="doctor">doctor</option>
-        <option value="journalist">journalist</option>
-        <option value="photographer">photographer</option>
-        <option value="student">student</option>
+        <option value="developer">розробник</option>
+        <option value="designer">дизайнер</option>
+        <option value="musician">музикант</option>
+        <option value="biologist">біолог</option>
+        <option value="artist">художник</option>
+        <option value="teacher">вчитель</option>
+        <option value="engineer">інженер</option>
+        <option value="lawyer">адвокат</option>
+        <option value="accountant">бухгалтер</option>
+        <option value="doctor">лікар</option>
+        <option value="journalist">журналіст</option>
+        <option value="photographer">фотограф</option>
+        <option value="student">студент</option>
     </select>
-    <p>your email</p>
+    <p>твій email</p>
     <input type="email" name="email" maxlength="50" placeholder="<?= $fetch_profile['email']; ?>" class="box">
     </div>
 
     <div class="col">
-    <p>old password</p>
-    <input type="password" name="old_pass" maxlength="20" placeholder="enter your old password" class="box">
+    <p>старий пароль</p>
+    <input type="password" name="old_pass" maxlength="20" placeholder="введи старий пароль" class="box">
     
-    <p>your password</p>
-    <input type="password" name="new_pass" maxlength="20" placeholder="enter your new password" class="box">
-    <p>confirm password</p>
-    <input type="password" name="c_pass" maxlength="20" placeholder="confirm your new password" class="box">
+    <p>твій пароль</p>
+    <input type="password" name="new_pass" maxlength="20" placeholder="введи новий пароль" class="box">
+    <p>повтори пароль</p>
+    <input type="password" name="c_pass" maxlength="20" placeholder="повтори новий пароль" class="box">
     
 </div>
 </div>
 <p>select pic</p>
     <input type="file" name="image" class="box"  accept="image/*">
-<input type="submit" value="update now" name="submit" class="btn" >
+<input type="submit" value="оновити профіль" name="submit" class="btn" >
 </form>
 
 </section>

@@ -43,46 +43,46 @@ $total_bookmark = $cout_bookmark->rowCount();
 
 <section class="quick-select">
 
-    <h1 class="heading">quick options</h1>
+    <h1 class="heading">швидкі опції</h1>
 
     <div class="box-container">
 
     <?php if($user_id != ''){ ?>
         <div class="box">
-            <h3 class="title">likes and comments</h3>
-            <p>total likes : <span><?= $total_likes; ?></span></p>
-            <a href="likes.php" class="inline-btn">view likes</a>
-            <p>total comments : <span><?= $total_comments; ?></span></p>
-            <a href="comments.php" class="inline-btn">view comments</a>
-            <p>playlist saved : <span><?= $total_bookmark; ?></span></p>
-            <a href="bookmark.php" class="inline-btn">view bookmark</a>
+            <h3 class="title">лайки та коментарі</h3>
+            <p>всього лайків : <span><?= $total_likes; ?></span></p>
+            <a href="likes.php" class="inline-btn">переглянути</a>
+            <p>всього коментарів : <span><?= $total_comments; ?></span></p>
+            <a href="comments.php" class="inline-btn">переглянути</a>
+            <p>плейлистів збережено : <span><?= $total_bookmark; ?></span></p>
+            <a href="bookmark.php" class="inline-btn">переглянути</a>
         </div>
         <?php }else{ ?>
             <div class="box" style="text-align: center;">
-            <h3 class="title">login or register</h3>
+            <h3 class="title">увійдіть або зареєструйтесь</h3>
             <div class="flex-btn">
-                <a href="login.php" class="option-btn">login</a>
-                <a href="register.php" class="option-btn">register</a>
+                <a href="login.php" class="option-btn">вхід</a>
+                <a href="register.php" class="option-btn">реєстрація</a>
             </div>
         </div>
         <?php } ?>
 
         <div class="box">
-            <h3 class="title">top categories</h3>
+            <h3 class="title">топ категорій</h3>
             <div class="flex">
-            <a href="courses.php"><i class="fas fa-code"></i><span>development</span></a>
-            <a href="courses.php"><i class="fas fa-chart-simple"></i><span>business</span></a>
-            <a href="courses.php"><i class="fas fa-pen"></i><span>design</span></a>
-            <a href="courses.php"><i class="fas fa-chart-line"></i><span>marketing</span></a>
-            <a href="courses.php"><i class="fas fa-music"></i><span>music</span></a>
-            <a href="courses.php"><i class="fas fa-camera"></i><span>photography</span></a>
-            <a href="courses.php"><i class="fas fa-cog"></i><span>software</span></a>
-            <a href="courses.php"><i class="fas fa-vial"></i><span>science</span></a>
+            <a href="courses.php"><i class="fas fa-code"></i><span>розробка</span></a>
+            <a href="courses.php"><i class="fas fa-chart-simple"></i><span>бізнес</span></a>
+            <a href="courses.php"><i class="fas fa-pen"></i><span>дизайн</span></a>
+            <a href="courses.php"><i class="fas fa-chart-line"></i><span>маркетинг</span></a>
+            <a href="courses.php"><i class="fas fa-music"></i><span>музика</span></a>
+            <a href="courses.php"><i class="fas fa-camera"></i><span>фотографії</span></a>
+            <a href="courses.php"><i class="fas fa-cog"></i><span>програмне забезпечення</span></a>
+            <a href="courses.php"><i class="fas fa-vial"></i><span>наука</span></a>
             </div>
         </div>
 
         <div class="box">
-            <h3 class="title">popular topics</h3>
+            <h3 class="title">популярні теми</h3>
             <div class="flex">
             <a href="courses.php"><i class="fab fa-figma"></i><span>figma</span></a>
             <a href="courses.php"><i class="fa-solid fa-palette"></i><span>Photoshop</span></a>
@@ -99,9 +99,9 @@ $total_bookmark = $cout_bookmark->rowCount();
         </div>
 
         <div class="box tutor">
-            <h3 class="title">become a tutor</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, eligendi!</p>
-            <a href="admin/register.php" class="inline-btn">get started</a>
+            <h3 class="title">стати викладачем</h3>
+            <p>Приєднуйтесь до нашої освітньої платформи та діліться знаннями з тисячами студентів.</p>
+            <a href="admin/register.php" class="inline-btn">Розпочати</a>
         </div>
 
     </div>
@@ -110,7 +110,7 @@ $total_bookmark = $cout_bookmark->rowCount();
 
 <section class="course">
 
-    <h1 class="heading">latest courses</h1>
+    <h1 class="heading">останні курси</h1>
 
     <div class="box-container">
 
@@ -143,7 +143,7 @@ $total_bookmark = $cout_bookmark->rowCount();
                     <img src="uploaded_files/<?= $fetch_course['thumb']; ?>" alt="">
                 </div>
                 <h3 class="title"><?= $fetch_course['title']; ?></h3>
-                <a href="playlist.php?get_id=<?= $course_id; ?>" class="inline-btn">view course</a>
+                <a href="playlist.php?get_id=<?= $course_id; ?>" class="inline-btn">переглянути</a>
         </div>
 
         <?php 
@@ -156,7 +156,7 @@ $total_bookmark = $cout_bookmark->rowCount();
     </div>
 
     <div style="margin-top: 2rem; text-align: center;">
-        <a href="courses.php" class="inline-option-btn">view all</a>
+        <a href="courses.php" class="inline-option-btn">Переглянути всі</a>
     </div>
 
 </section>

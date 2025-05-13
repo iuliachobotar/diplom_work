@@ -35,16 +35,16 @@ if (isset($_POST['submit'])) {
     $verify_content->execute([ $tutor_id, $title, $description]);
 
     if ($verify_content->rowCount() > 0) {
-        $message[] = 'content already created!';
+        $message[] = 'вже створений контент!';
     } else {
         if($thumb_size > 2000000){
-            $message[] = 'image size is too large!';
+            $message[] = 'фото занадто велике!';
         }else{
             $add_content = $conn->prepare("INSERT INTO `content` (id, tutor_id, playlist_id, title, description, video, thumb, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             $add_content->execute([$id, $tutor_id, $playlist_id, $title, $description, $rename_video, $rename_thumb, $status]);
             move_uploaded_file($thumb_tmp_name, $thumb_folder);
             move_uploaded_file($video_tmp_name, $video_folder);
-            $message[] = 'New content created!';
+            $message[] = 'новий урок створено!';
         }
     }
 
@@ -69,20 +69,20 @@ if (isset($_POST['submit'])) {
 
 <section class="crud-form">
 
-    <h1 class="heading">add content</h1>
+    <h1 class="heading">створити контент</h1>
 
     <form action="" method="post" enctype="multipart/form-data">
-    <p>content status <span>*</span></p>
+    <p>статус контенту <span>*</span></p>
     <select name="status" required class="box">
-    <option value="active">active</option>
-    <option value="deactive">deactive</option>
+    <option value="active">активний</option>
+    <option value="deactive">неактивний</option>
     </select>
-    <p>content title <span>*</span></p>
-    <input type="text" class="box" name="title" maxlength="100" placeholder="enter content title">
-    <p>content description <span>*</span></p>
-    <textarea name="description" class="box" cols="30" required placeholder="enter content description" maxlength="1000" rows="10" ></textarea>
+    <p>заголовок контенту <span>*</span></p>
+    <input type="text" class="box" name="title" maxlength="100" placeholder="введіть заголовок">
+    <p>опис контенту <span>*</span></p>
+    <textarea name="description" class="box" cols="30" required placeholder="введіть опис контенту" maxlength="1000" rows="10" ></textarea>
     <select name="playlist_id" class="box" required>
-        <option value="" disabled selected>--select playlist</option>
+        <option value="" disabled selected>--оберіть плейлист</option>
     <?php 
         $select_playlist = $conn->prepare("SELECT * FROM `playlist` WHERE tutor_id = ?");
         $select_playlist->execute([$tutor_id]);
@@ -93,16 +93,16 @@ if (isset($_POST['submit'])) {
     <?php 
          }
         }else{
-            echo '<option value="" disabled>no playlist created yet!</option>';
+            echo '<option value="" disabled>плейлист ще не створено!</option>';
         }
     ?>
 
     </select>
-    <p>select thumbnail <span>*</span></p>
+    <p>оберіть обкладинку <span>*</span></p>
     <input type="file" name="thumb" required accept="image/*" class="box">
-    <p>select video <span>*</span></p>
+    <p>оберіть відео <span>*</span></p>
     <input type="file" name="video" required accept="video/*" class="box">
-    <input type="submit" value="add content" name="submit" class="btn">
+    <input type="submit" value="створити контент" name="submit" class="btn">
 
     </form>
 

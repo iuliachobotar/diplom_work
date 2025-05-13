@@ -53,13 +53,13 @@ if(isset($_POST['delete_playlist'])){
 
 <section class="playlists">
 
-<h1 class="heading">all playlists</h1>
+<h1 class="heading">всі плейлисти</h1>
 
 <div class="box-container">
 
     <div class="box" style="text-align: center;">
-        <h3 class="title" style="padding-bottom: .7rem;">create new playlist</h3>
-        <a href="add_playlist.php" class="btn">add playlist</a>
+        <h3 class="title" style="padding-bottom: .7rem;">створити плейлист</h3>
+        <a href="add_playlist.php" class="btn">додати плейлист</a>
     </div>
 
 <?php 
@@ -88,10 +88,10 @@ if(isset($_POST['delete_playlist'])){
             <p class="description"><?= $fetch_playlist['description'];?></p>
             <form action="" method="POST" class="flex-btn">
                 <input type="hidden" name="delete_id" value="<?= $playlist_id; ?>">
-                <a href="update_playlist.php?get_id=<?= $playlist_id; ?>" class="option-btn">update</a>
-                <input type="submit" value="delete" name="delete_playlist" class="delete-btn">
+                <a href="update_playlist.php?get_id=<?= $playlist_id; ?>" class="option-btn">редагувати</a>
+                <input type="submit" value="видалити" name="delete_playlist" class="delete-btn">
             </form>
-            <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="btn">view playlist</a>
+            <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="btn">переглянути</a>
 
 </div>
 <?php
